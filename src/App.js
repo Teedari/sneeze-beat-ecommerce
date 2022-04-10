@@ -1,6 +1,6 @@
 import "./index.css";
 import "antd/dist/antd.css";
-import "./App.scss";
+// import "./App.scss";
 import "./main.css";
 import Homepage from "./pages/user";
 import urls from "./utils/routes/page.routes";
