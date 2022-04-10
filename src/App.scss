@@ -1,604 +1,604 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@100;400;700;900&family=Poppins&display=swap");
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+// @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@100;400;700;900&family=Poppins&display=swap");
 
-$primary-color: #fcb264;
-$secondary-color: #0d0d0e;
+// $primary-color: #fcb264;
+// $secondary-color: #0d0d0e;
 
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p {
-    color: theme("colors.white");
-    margin: 0 !important;
-  }
-  h1 {
-    @apply text-5xl md:text-6xl font-semibold;
-  }
-  h2 {
-    @apply text-2xl md:text-3xl font-semibold;
-  }
-  h3 {
-    @apply text-2xl font-semibold;
-  }
-  h4 {
-    @apply text-xl font-semibold;
-  }
-  h5 {
-    @apply text-base font-semibold;
-  }
-  body,
-  html {
-    background: theme("colors.slate.900") !important;
-    color: theme("colors.white") !important;
-  }
-}
+// @layer base {
+//   h1,
+//   h2,
+//   h3,
+//   h4,
+//   h5,
+//   h6,
+//   p {
+//     color: theme("colors.white");
+//     margin: 0 !important;
+//   }
+//   h1 {
+//     @apply text-5xl md:text-6xl font-semibold;
+//   }
+//   h2 {
+//     @apply text-2xl md:text-3xl font-semibold;
+//   }
+//   h3 {
+//     @apply text-2xl font-semibold;
+//   }
+//   h4 {
+//     @apply text-xl font-semibold;
+//   }
+//   h5 {
+//     @apply text-base font-semibold;
+//   }
+//   body,
+//   html {
+//     background: theme("colors.slate.900") !important;
+//     color: theme("colors.white") !important;
+//   }
+// }
 
-@layer utilities {
-  :root {
-    --clr-primary: #fcb264;
-    --clr-secondary: theme("colors.red.600");
-    --bg-secondary: theme("colors.red.600");
-  }
-  .input-focus-outline-none {
-    &:focus,
-    &:focus-within {
-      box-shadow: 0 !important;
-      border: 0 !important;
-      outline: none !important;
-    }
-  }
+// @layer utilities {
+//   :root {
+//     --clr-primary: #fcb264;
+//     --clr-secondary: theme("colors.red.600");
+//     --bg-secondary: theme("colors.red.600");
+//   }
+//   .input-focus-outline-none {
+//     &:focus,
+//     &:focus-within {
+//       box-shadow: 0 !important;
+//       border: 0 !important;
+//       outline: none !important;
+//     }
+//   }
 
-  .filter-blur {
-    filter: blur(4px) !important;
-  }
-  .text-muted {
-    @apply text-slate-500;
-  }
-  .container {
-    @apply px-8 mx-auto md:max-w-screen-xl;
-  }
+//   .filter-blur {
+//     filter: blur(4px) !important;
+//   }
+//   .text-muted {
+//     @apply text-slate-500;
+//   }
+//   .container {
+//     @apply px-8 mx-auto md:max-w-screen-xl;
+//   }
 
-  .container-block {
-    @apply py-8;
-  }
-  .heading {
-    @apply py-4;
-    h2,
-    h3,
-    h4 {
-      @apply text-slate-400;
-    }
-    span {
-      @apply text-primary;
-    }
+//   .container-block {
+//     @apply py-8;
+//   }
+//   .heading {
+//     @apply py-4;
+//     h2,
+//     h3,
+//     h4 {
+//       @apply text-slate-400;
+//     }
+//     span {
+//       @apply text-primary;
+//     }
 
-    &.one-color {
-      span {
-        color: inherit;
-      }
-    }
-    &-secondary {
-      h1,
-      h2,
-      h3,
-      h4 {
-        color: var(--clr-secondary) !important;
-      }
-    }
-  }
+//     &.one-color {
+//       span {
+//         color: inherit;
+//       }
+//     }
+//     &-secondary {
+//       h1,
+//       h2,
+//       h3,
+//       h4 {
+//         color: var(--clr-secondary) !important;
+//       }
+//     }
+//   }
 
-  .logo {
-    font-family: "Kaushan Script";
-    @apply text-3xl font-semibold;
-  }
+//   .logo {
+//     font-family: "Kaushan Script";
+//     @apply text-3xl font-semibold;
+//   }
 
-  .c-shadow {
-    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.4);
-  }
+//   .c-shadow {
+//     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.4);
+//   }
 
-  .center {
-    @apply flex items-center justify-center;
-  }
+//   .center {
+//     @apply flex items-center justify-center;
+//   }
 
-  .image-container {
-    @apply w-full h-full relative overflow-hidden;
-    img {
-      @apply block w-full h-full object-cover;
-    }
-  }
+//   .image-container {
+//     @apply w-full h-full relative overflow-hidden;
+//     img {
+//       @apply block w-full h-full object-cover;
+//     }
+//   }
 
-  .absolute-container {
-    @apply absolute w-full h-full left-0 top-0;
-  }
-} /**  /layer utilities **/
+//   .absolute-container {
+//     @apply absolute w-full h-full left-0 top-0;
+//   }
+// } /**  /layer utilities **/
 
-@layer components {
-  .navbar {
-    @apply z-30 fixed  min-h-[4rem] flex justify-between
-    items-center w-full px-10;
-    @apply md:relative md:flex-row md:container;
-    &-nav {
-      @apply fixed bg-slate-900 top-0 rounded-lg mt-16  text-white p-4 text-center w-11/12 left-0 -translate-x-full transition-transform;
-      @apply md:relative md:translate-x-0 md:flex-row md:w-full md:flex md:items-center md:justify-end md:mt-0 md:bg-transparent md:text-black;
-      &.active {
-        @apply left-1/2 -translate-x-1/2;
-      }
-      &-menu {
-        @apply flex flex-col gap-5 items-center m-0;
-        @apply md:flex-row;
-        a {
-          @apply text-slate-300 text-lg;
-        }
-      }
-    }
-  }
+// @layer components {
+//   .navbar {
+//     @apply z-30 fixed  min-h-[4rem] flex justify-between
+//     items-center w-full px-10;
+//     @apply md:relative md:flex-row md:container;
+//     &-nav {
+//       @apply fixed bg-slate-900 top-0 rounded-lg mt-16  text-white p-4 text-center w-11/12 left-0 -translate-x-full transition-transform;
+//       @apply md:relative md:translate-x-0 md:flex-row md:w-full md:flex md:items-center md:justify-end md:mt-0 md:bg-transparent md:text-black;
+//       &.active {
+//         @apply left-1/2 -translate-x-1/2;
+//       }
+//       &-menu {
+//         @apply flex flex-col gap-5 items-center m-0;
+//         @apply md:flex-row;
+//         a {
+//           @apply text-slate-300 text-lg;
+//         }
+//       }
+//     }
+//   }
 
-  .showcase {
-    @apply rounded-lg py-8 bg-dark-300 flex items-center justify-center  overflow-hidden bg-bottom bg-cover relative;
-    z-index: 2;
-    h3 {
-      @apply text-white;
-    }
-    &::after {
-      content: "";
-      @apply absolute bg-genre-card-svg w-full h-full bg-center bg-cover right-0 translate-x-1/2 top-1/2 -translate-y-1/2;
-      z-index: -1;
-    }
-  }
+//   .showcase {
+//     @apply rounded-lg py-8 bg-dark-300 flex items-center justify-center  overflow-hidden bg-bottom bg-cover relative;
+//     z-index: 2;
+//     h3 {
+//       @apply text-white;
+//     }
+//     &::after {
+//       content: "";
+//       @apply absolute bg-genre-card-svg w-full h-full bg-center bg-cover right-0 translate-x-1/2 top-1/2 -translate-y-1/2;
+//       z-index: -1;
+//     }
+//   }
 
-  /*** section ***/
-  .hero {
-    @apply min-h-screen pt-16  flex flex-col items-center justify-center md:flex-row;
-  }
+//   /*** section ***/
+//   .hero {
+//     @apply min-h-screen pt-16  flex flex-col items-center justify-center md:flex-row;
+//   }
 
-  .custom-list {
-    .ant-list-pagination {
-      .ant-pagination {
-        li > button {
-          @apply rounded-full flex items-center justify-center border-teal-900 bg-teal-900;
-          @apply hover:bg-transparent hover:text-teal-900;
-        }
-        li:not(.ant-pagination-prev):not(.ant-pagination-next) {
-          @apply hidden;
-        }
-      }
-    }
-  }
+//   .custom-list {
+//     .ant-list-pagination {
+//       .ant-pagination {
+//         li > button {
+//           @apply rounded-full flex items-center justify-center border-teal-900 bg-teal-900;
+//           @apply hover:bg-transparent hover:text-teal-900;
+//         }
+//         li:not(.ant-pagination-prev):not(.ant-pagination-next) {
+//           @apply hidden;
+//         }
+//       }
+//     }
+//   }
 
-  .absolute-placeholder {
-    @apply absolute w-full h-full bg-[rgba(212,143,16,0.16)] text-7xl flex items-center justify-center;
-  }
-  /** playlist cards **/
+//   .absolute-placeholder {
+//     @apply absolute w-full h-full bg-[rgba(212,143,16,0.16)] text-7xl flex items-center justify-center;
+//   }
+//   /** playlist cards **/
 
-  .playlist {
-    &-card {
-      @apply border-x-4 border-transparent;
+//   .playlist {
+//     &-card {
+//       @apply border-x-4 border-transparent;
 
-      &:hover {
-        .absolute-placeholder {
-          @apply flex rounded-lg;
-        }
+//       &:hover {
+//         .absolute-placeholder {
+//           @apply flex rounded-lg;
+//         }
 
-        .signature {
-          @apply text-primary;
-        }
-      }
-      &-img {
-        @apply relative  w-full h-60;
-        img {
-          @apply block w-full h-full object-cover rounded-lg;
-        }
-        .absolute-placeholder {
-          @apply hidden;
-          svg {
-            @apply text-slate-900 hover:text-primary cursor-pointer;
-          }
-        }
-      }
-    }
-  }
+//         .signature {
+//           @apply text-primary;
+//         }
+//       }
+//       &-img {
+//         @apply relative  w-full h-60;
+//         img {
+//           @apply block w-full h-full object-cover rounded-lg;
+//         }
+//         .absolute-placeholder {
+//           @apply hidden;
+//           svg {
+//             @apply text-slate-900 hover:text-primary cursor-pointer;
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  .btn {
-    // border-radius: 10% 30% .4rem !important;
-    border-radius: theme("borderRadius.xl") !important;
-    @apply px-7 py-6 h-[unset] font-semibold flex items-center content-center;
-    line-height: 0 !important;
-    @apply hover:scale-105;
-    &.btn-sm{
-      @apply px-4 py-4;
-    }
-    /** button loading style  for this to work always put you button info inside a span **/
-    &.ant-btn-loading {
-      span.anticon {
-        @apply p-0;
-      }
-      span:nth-of-type(2) {
-        @apply hidden;
-      }
-    }
+//   .btn {
+//     // border-radius: 10% 30% .4rem !important;
+//     border-radius: theme("borderRadius.xl") !important;
+//     @apply px-7 py-6 h-[unset] font-semibold flex items-center content-center;
+//     line-height: 0 !important;
+//     @apply hover:scale-105;
+//     &.btn-sm{
+//       @apply px-4 py-4;
+//     }
+//     /** button loading style  for this to work always put you button info inside a span **/
+//     &.ant-btn-loading {
+//       span.anticon {
+//         @apply p-0;
+//       }
+//       span:nth-of-type(2) {
+//         @apply hidden;
+//       }
+//     }
 
-    i {
-      font-size: theme("fontSize.xl") !important;
-    }
-    &-primary {
-      @apply bg-primary border-primary text-slate-900 hover:bg-primary hover:border-primary hover:text-slate-900;
-    }
-    a.btn-primary{
-      color: theme('colors.slate.900') !important
-    }
-    &-secondary {
-      background: theme("backgroundColor.cyan.500") !important;
-      border: theme("borderWidth.0") !important;
-      color: theme("colors.black") !important;
-      &:hover {
-        color: theme("colors.black") !important;
-      }
-    }
-    &-default {
-      background: theme("backgroundColor.dark-200") !important;
-      color: theme("colors.slate.400") !important;
-      &:hover {
-        background: ligthness($primary-color, 0.8) !important;
-        color: theme("colors.slate.400") !important;
-      }
-    }
-    &-accent{
-      @apply bg-red-700 border-red-800 text-white hover:bg-red-600 hover:border-red-700 hover:text-white;
-    }
-  }
+//     i {
+//       font-size: theme("fontSize.xl") !important;
+//     }
+//     &-primary {
+//       @apply bg-primary border-primary text-slate-900 hover:bg-primary hover:border-primary hover:text-slate-900;
+//     }
+//     a.btn-primary{
+//       color: theme('colors.slate.900') !important
+//     }
+//     &-secondary {
+//       background: theme("backgroundColor.cyan.500") !important;
+//       border: theme("borderWidth.0") !important;
+//       color: theme("colors.black") !important;
+//       &:hover {
+//         color: theme("colors.black") !important;
+//       }
+//     }
+//     &-default {
+//       background: theme("backgroundColor.dark-200") !important;
+//       color: theme("colors.slate.400") !important;
+//       &:hover {
+//         background: ligthness($primary-color, 0.8) !important;
+//         color: theme("colors.slate.400") !important;
+//       }
+//     }
+//     &-accent{
+//       @apply bg-red-700 border-red-800 text-white hover:bg-red-600 hover:border-red-700 hover:text-white;
+//     }
+//   }
 
-  /*** LAYOUTS ***/
-  #layout {
-    $sidebar-width: 15rem !important;
-    $header-height: 4rem !important;
-    &-admin {
-      background-color: theme("backgroundColor.slate.800") !important;
-      &.active {
-        .ant-layout-sider-collapsed {
-          min-width: 80px !important;
-        }
+//   /*** LAYOUTS ***/
+//   #layout {
+//     $sidebar-width: 15rem !important;
+//     $header-height: 4rem !important;
+//     &-admin {
+//       background-color: theme("backgroundColor.slate.800") !important;
+//       &.active {
+//         .ant-layout-sider-collapsed {
+//           min-width: 80px !important;
+//         }
 
-        #layout-admin-container {
-          padding-left: 80px !important;
-        }
-      }
+//         #layout-admin-container {
+//           padding-left: 80px !important;
+//         }
+//       }
 
-      &-container {
-        padding-left: $sidebar-width;
-        background: inherit;
-        min-height: 100vh;
-      }
-      /** sidebar **/
-      &-sidebar {
-        @apply fixed h-screen bg-slate-900;
-        min-width: $sidebar-width;
+//       &-container {
+//         padding-left: $sidebar-width;
+//         background: inherit;
+//         min-height: 100vh;
+//       }
+//       /** sidebar **/
+//       &-sidebar {
+//         @apply fixed h-screen bg-slate-900;
+//         min-width: $sidebar-width;
 
-        .ant-layout-sider-trigger {
-          max-width: $sidebar-width;
-        }
+//         .ant-layout-sider-trigger {
+//           max-width: $sidebar-width;
+//         }
 
-        /** menu ***/
-        .custom-menu {
-          background: inherit;
-          // padding: 1em;
-          &-selected-item {
-            color: theme("colors.primary") !important;
-            &::after {
-              @apply content-[''] absolute w-full h-full left-0 top-0 ml-2 rounded-l-full bg-slate-800 z-[-1];
-            }
-          }
+//         /** menu ***/
+//         .custom-menu {
+//           background: inherit;
+//           // padding: 1em;
+//           &-selected-item {
+//             color: theme("colors.primary") !important;
+//             &::after {
+//               @apply content-[''] absolute w-full h-full left-0 top-0 ml-2 rounded-l-full bg-slate-800 z-[-1];
+//             }
+//           }
 
-          .ant-menu {
-            &-submenu-open .ant-menu-submenu-title {
-              @apply shadow-2xl;
-            }
+//           .ant-menu {
+//             &-submenu-open .ant-menu-submenu-title {
+//               @apply shadow-2xl;
+//             }
 
-            &-sub {
-              background-color: transparent !important;
-            }
+//             &-sub {
+//               background-color: transparent !important;
+//             }
 
-            &-item,
-            &-submenu-title {
-              @apply py-2 h-[unset] font-semibold;
-            }
+//             &-item,
+//             &-submenu-title {
+//               @apply py-2 h-[unset] font-semibold;
+//             }
 
-            &-item {
-              &-selected {
-                @apply bg-transparent;
-              }
-            }
-          } //ant-menu
-        } //custom-menu
-      } // sidebar
+//             &-item {
+//               &-selected {
+//                 @apply bg-transparent;
+//               }
+//             }
+//           } //ant-menu
+//         } //custom-menu
+//       } // sidebar
 
-      /** header **/
-      &-header {
-        height: $header-height;
-        background: inherit !important;
-        @apply border-b border-slate-700 p-0 container;
-      }
+//       /** header **/
+//       &-header {
+//         height: $header-height;
+//         background: inherit !important;
+//         @apply border-b border-slate-700 p-0 container;
+//       }
 
-      /** content **/
-      &-content {
-        // min-height: calc(100vh-40px) !important;
-      }
+//       /** content **/
+//       &-content {
+//         // min-height: calc(100vh-40px) !important;
+//       }
 
-      /** footer **/
-      &-footer {
-        @apply bg-slate-700;
-        height: $header-height;
-      }
-    }
-  }
+//       /** footer **/
+//       &-footer {
+//         @apply bg-slate-700;
+//         height: $header-height;
+//       }
+//     }
+//   }
 
-  .layout {
-    &-user {
-      background: theme("colors.slate.900") !important;
-    }
+//   .layout {
+//     &-user {
+//       background: theme("colors.slate.900") !important;
+//     }
 
-    &-mobile-container {
-      @apply w-80 shadow-2xl flex flex-col gap-8 bg-dark-300 rounded-2xl px-6 py-8;
-    }
-  }
-  /** inheritance **/
+//     &-mobile-container {
+//       @apply w-80 shadow-2xl flex flex-col gap-8 bg-dark-300 rounded-2xl px-6 py-8;
+//     }
+//   }
+//   /** inheritance **/
 
-  %input-effect {
-    &:hover {
-      border-right: 1px solid theme("borderColor.primary") !important;
-    }
-    &:focus-within,
-    &:focus,
-    &:focus-visible {
-      box-shadow: 1px 1px theme("colors.primary"),
-        -1px -1px theme("colors.primary") !important;
-    }
-  }
-  /*** FORM ***/
+//   %input-effect {
+//     &:hover {
+//       border-right: 1px solid theme("borderColor.primary") !important;
+//     }
+//     &:focus-within,
+//     &:focus,
+//     &:focus-visible {
+//       box-shadow: 1px 1px theme("colors.primary"),
+//         -1px -1px theme("colors.primary") !important;
+//     }
+//   }
+//   /*** FORM ***/
 
-  .input-search {
-    * {
-      @apply bg-transparent border-0;
-    }
-    .ant-input-wrapper {
-      @apply rounded-full py-1 border-transparent;
-    }
-    input,
-    button {
-      @apply py-2;
-    }
-    button {
-      @apply hover:bg-transparent focus:bg-transparent;
-    }
-    input {
-      @apply text-slate-300 px-4 border-transparent hover:border-0 hover:border-none focus:shadow-none focus:border-transparent focus-within:border-transparent;
-    }
-    .ant-input-group-addon {
-      // background: red !important;
-    }
-  }
+//   .input-search {
+//     * {
+//       @apply bg-transparent border-0;
+//     }
+//     .ant-input-wrapper {
+//       @apply rounded-full py-1 border-transparent;
+//     }
+//     input,
+//     button {
+//       @apply py-2;
+//     }
+//     button {
+//       @apply hover:bg-transparent focus:bg-transparent;
+//     }
+//     input {
+//       @apply text-slate-300 px-4 border-transparent hover:border-0 hover:border-none focus:shadow-none focus:border-transparent focus-within:border-transparent;
+//     }
+//     .ant-input-group-addon {
+//       // background: red !important;
+//     }
+//   }
 
-  .form {
-    $input-padding: 1em 0.8em !important;
-    $select-padding: 0.7em 0.8em !important;
-    $form-input-border-radius: theme("borderRadius.xl") !important;
-    label {
-      color: theme("colors.slate.300") !important;
-    }
+//   .form {
+//     $input-padding: 1em 0.8em !important;
+//     $select-padding: 0.7em 0.8em !important;
+//     $form-input-border-radius: theme("borderRadius.xl") !important;
+//     label {
+//       color: theme("colors.slate.300") !important;
+//     }
 
-    .ant-input {
-      padding: $input-padding;
-      border: 0 !important;
-      @extend %input-effect;
-    }
+//     .ant-input {
+//       padding: $input-padding;
+//       border: 0 !important;
+//       @extend %input-effect;
+//     }
 
-    .ant-input,
-    .ant-input-affix-wrapper {
-      @apply bg-dark-200 border-0 text-slate-400;
-      border-radius: $form-input-border-radius;
-    }
+//     .ant-input,
+//     .ant-input-affix-wrapper {
+//       @apply bg-dark-200 border-0 text-slate-400;
+//       border-radius: $form-input-border-radius;
+//     }
 
-    .ant-input-affix-wrapper {
-      padding: 0 !important;
-      padding-right: 0.8em !important;
+//     .ant-input-affix-wrapper {
+//       padding: 0 !important;
+//       padding-right: 0.8em !important;
 
-      span {
-        color: theme("colors.primary") !important;
-      }
-      .ant-input {
-        &:hover {
-          border-right: 0 !important;
-        }
-      }
+//       span {
+//         color: theme("colors.primary") !important;
+//       }
+//       .ant-input {
+//         &:hover {
+//           border-right: 0 !important;
+//         }
+//       }
 
-      @extend %input-effect;
-    }
+//       @extend %input-effect;
+//     }
 
-    .ant-select-selector {
-      background: theme("backgroundColor.dark-200") !important;
-      border: none !important;
-      height: unset !important;
-      padding: $select-padding;
-      border-radius: $form-input-border-radius;
-      @extend %input-effect;
-    }
-    .ant-radio-group{
-      @apply flex gap-4;
-    }
-    .ant-select-selection-item{
-      @apply text-slate-200;
-    }
-    /** Radio Buttons **/
-    .ant-radio-button-wrapper{
-      @apply bg-dark-700 rounded-lg border-0 checked:border-primary;
-      &:not(:first-child){
-        &::before{
-          @apply border-0 w-0 h-0;
-        }
-      }
+//     .ant-select-selector {
+//       background: theme("backgroundColor.dark-200") !important;
+//       border: none !important;
+//       height: unset !important;
+//       padding: $select-padding;
+//       border-radius: $form-input-border-radius;
+//       @extend %input-effect;
+//     }
+//     .ant-radio-group{
+//       @apply flex gap-4;
+//     }
+//     .ant-select-selection-item{
+//       @apply text-slate-200;
+//     }
+//     /** Radio Buttons **/
+//     .ant-radio-button-wrapper{
+//       @apply bg-dark-700 rounded-lg border-0 checked:border-primary;
+//       &:not(:first-child){
+//         &::before{
+//           @apply border-0 w-0 h-0;
+//         }
+//       }
 
-      /** checked **/
-      &-checked{
-        @apply bg-cyan-600 focus:border-primary;
-      }
-    }
-  }
+//       /** checked **/
+//       &-checked{
+//         @apply bg-cyan-600 focus:border-primary;
+//       }
+//     }
+//   }
 
-  /** Modal **/
+//   /** Modal **/
 
-  .custom-modal {
-    .ant-modal {
-      // background: theme('backgroundColor.dark-800') !important;
-      &-content,
-      &-header {
-        background-color: theme("backgroundColor.slate.800") !important;
-        border: none !important;
-      }
-    }
-  }
-  .tile {
-    &-cart {
-      @apply bg-dark-400 gap-4 rounded-full py-2 px-3 flex items-center relative overflow-hidden cursor-pointer;
-      &-absolute {
-        @apply w-12 h-12 px-5 py-2 rounded-full bg-red-400 center absolute right-0 translate-x-full transition-transform;
-      }
-      &:hover {
-        .tile-cart-absolute {
-          @apply mr-2 translate-x-0;
-        }
-      }
-    }
-  }
-  .tile {
-    @apply border border-slate-800 rounded-lg flex items-center gap-4 py-4 px-3 shadow-lg relative  overflow-hidden;
-    &-image {
-      @apply w-16 h-16 rounded-lg;
-      img {
-        @apply rounded-lg;
-      }
-    }
-    &-absolute {
-      @apply absolute bg-primary h-full left-0 w-full right-0 translate-x-full transition-transform;
-    }
-    &:hover {
-      .tile-absolute {
-        @apply translate-x-0;
-      }
-    }
-  }
-  button {
-    // @extend %input-effect;
-    @apply active:animate-bounce;
-  }
+//   .custom-modal {
+//     .ant-modal {
+//       // background: theme('backgroundColor.dark-800') !important;
+//       &-content,
+//       &-header {
+//         background-color: theme("backgroundColor.slate.800") !important;
+//         border: none !important;
+//       }
+//     }
+//   }
+//   .tile {
+//     &-cart {
+//       @apply bg-dark-400 gap-4 rounded-full py-2 px-3 flex items-center relative overflow-hidden cursor-pointer;
+//       &-absolute {
+//         @apply w-12 h-12 px-5 py-2 rounded-full bg-red-400 center absolute right-0 translate-x-full transition-transform;
+//       }
+//       &:hover {
+//         .tile-cart-absolute {
+//           @apply mr-2 translate-x-0;
+//         }
+//       }
+//     }
+//   }
+//   .tile {
+//     @apply border border-slate-800 rounded-lg flex items-center gap-4 py-4 px-3 shadow-lg relative  overflow-hidden;
+//     &-image {
+//       @apply w-16 h-16 rounded-lg;
+//       img {
+//         @apply rounded-lg;
+//       }
+//     }
+//     &-absolute {
+//       @apply absolute bg-primary h-full left-0 w-full right-0 translate-x-full transition-transform;
+//     }
+//     &:hover {
+//       .tile-absolute {
+//         @apply translate-x-0;
+//       }
+//     }
+//   }
+//   button {
+//     // @extend %input-effect;
+//     @apply active:animate-bounce;
+//   }
 
-  /*** DASHBOAR STYLES ***/
-  .dashboard {
-    &-card {
-      @apply p-4 rounded-lg flex flex-col gap-4 relative z-[2];
-      &::before {
-        @apply content-[''] absolute w-full h-full bg-slate-900 top-0 left-0 rounded-lg z-[-1];
-        border-top-left-radius: 2.5rem;
-        border-bottom-right-radius: 2.5rem;
-      }
-      &::after {
-        @apply content-[''] absolute w-full h-full bg-primary top-0 left-0 rounded-xl z-[-2];
-      }
-    }
-  }
+//   /*** DASHBOAR STYLES ***/
+//   .dashboard {
+//     &-card {
+//       @apply p-4 rounded-lg flex flex-col gap-4 relative z-[2];
+//       &::before {
+//         @apply content-[''] absolute w-full h-full bg-slate-900 top-0 left-0 rounded-lg z-[-1];
+//         border-top-left-radius: 2.5rem;
+//         border-bottom-right-radius: 2.5rem;
+//       }
+//       &::after {
+//         @apply content-[''] absolute w-full h-full bg-primary top-0 left-0 rounded-xl z-[-2];
+//       }
+//     }
+//   }
 
-  /** table **/
-  .custom-table {
-    // background: inherit !important;
+//   /** table **/
+//   .custom-table {
+//     // background: inherit !important;
 
-    .ant-table,
-    .ant-table-thead > tr > th,
-    .ant-pagination-item-link,
-    .ant-pagination-item-active {
-      background: transparent;
-    }
-    .ant-table-tbody {
-      @apply border-slate-800;
-    }
-    .ant-table-thead {
-      tr .ant-table-cell {
-        @apply border-slate-600 text-primary;
-      }
-    }
+//     .ant-table,
+//     .ant-table-thead > tr > th,
+//     .ant-pagination-item-link,
+//     .ant-pagination-item-active {
+//       background: transparent;
+//     }
+//     .ant-table-tbody {
+//       @apply border-slate-800;
+//     }
+//     .ant-table-thead {
+//       tr .ant-table-cell {
+//         @apply border-slate-600 text-primary;
+//       }
+//     }
 
-    .ant-table-tbody {
-      .ant-table-row {
-        &:hover {
-          .ant-table-cell {
-            @apply bg-dark-200;
-          }
-        }
-      }
-      .ant-table-row .ant-table-cell {
-        @apply border-0 text-white;
-      }
-    }
+//     .ant-table-tbody {
+//       .ant-table-row {
+//         &:hover {
+//           .ant-table-cell {
+//             @apply bg-dark-200;
+//           }
+//         }
+//       }
+//       .ant-table-row .ant-table-cell {
+//         @apply border-0 text-white;
+//       }
+//     }
 
-    /** pagination styles table **/
-    .ant-pagination-item-link,
-    .ant-pagination-item-active {
-      @apply rounded-full text-slate-500 border-0 bg-slate-700 w-10 h-10 flex items-center justify-center;
-    }
-    .ant-pagination-item-active {
-      @apply animate-bounce;
-      a {
-        @apply text-primary font-semibold;
-      }
-    }
-  }
+//     /** pagination styles table **/
+//     .ant-pagination-item-link,
+//     .ant-pagination-item-active {
+//       @apply rounded-full text-slate-500 border-0 bg-slate-700 w-10 h-10 flex items-center justify-center;
+//     }
+//     .ant-pagination-item-active {
+//       @apply animate-bounce;
+//       a {
+//         @apply text-primary font-semibold;
+//       }
+//     }
+//   }
 
 
-}
-/** /layer components **/
+// }
+// /** /layer components **/
 
-/** Tabs **/
-  .ant-tabs-nav-list{
+// /** Tabs **/
+//   .ant-tabs-nav-list{
 
-    .ant-tabs-tab{
-      *{
-        color: theme('colors.primary') !important;
-        @apply font-semibold;
-      }
-    }
+//     .ant-tabs-tab{
+//       *{
+//         color: theme('colors.primary') !important;
+//         @apply font-semibold;
+//       }
+//     }
 
-    .ant-tabs-ink-bar {
-      @apply bg-red-600;
-    }
+//     .ant-tabs-ink-bar {
+//       @apply bg-red-600;
+//     }
 
-}
-.ant-menu-inline-collapsed {
-  padding: 0.8em;
-  .ant-menu-submenu-selected {
-    .ant-menu-submenu-title {
-      background: transparent;
-      color: $primary-color;
-    }
-  }
-  .ant-menu-item,
-  .ant-menu-submenu-title {
-    border-radius: 0.8rem !important;
-    background: rgba($color: #000000, $alpha: 0.2);
-  }
-}
-.ant-menu-submenu-popup {
-  .ant-menu-sub {
-    background-color: #0f172a !important;
-    .ant-menu-item {
-      &-selected {
-        background: $primary-color !important;
-        color: $secondary-color;
-      }
-    }
-  }
-}
+// }
+// .ant-menu-inline-collapsed {
+//   padding: 0.8em;
+//   .ant-menu-submenu-selected {
+//     .ant-menu-submenu-title {
+//       background: transparent;
+//       color: $primary-color;
+//     }
+//   }
+//   .ant-menu-item,
+//   .ant-menu-submenu-title {
+//     border-radius: 0.8rem !important;
+//     background: rgba($color: #000000, $alpha: 0.2);
+//   }
+// }
+// .ant-menu-submenu-popup {
+//   .ant-menu-sub {
+//     background-color: #0f172a !important;
+//     .ant-menu-item {
+//       &-selected {
+//         background: $primary-color !important;
+//         color: $secondary-color;
+//       }
+//     }
+//   }
+// }
 
 
