@@ -7,3 +7,37 @@
   --clr-primary: #fcb264;
   --clr-secondary: #0d0d0e;
 }
+
+@layer base {
+     h1,
+     h2,
+     h3,
+     h4,
+     h5,
+     h6,
+     p {
+       color: theme("colors.white");
+       margin: 0 !important;
+     }
+     h1 {
+       @apply text-5xl md:text-6xl font-semibold;
+     }
+     h2 {
+       @apply text-2xl md:text-3xl font-semibold;
+     }
+     h3 {
+       @apply text-2xl font-semibold;
+     }
+     h4 {
+       @apply text-xl font-semibold;
+     }
+     h5 {
+       @apply text-base font-semibold;
+     }
+     body,
+     html {
+       background: theme("colors.slate.900") !important;
+       color: theme("colors.white") !important;
+     }
+   }
+  
