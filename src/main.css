@@ -10,6 +10,7 @@
   --header-height: 4rem !important;
   --input-padding: 1em 0.8em !important;
   --select-padding: 0.7em 0.8em !important;
+  --form-input-border-radius: theme("borderRadius.xl") !important;
 }
 
 @layer base {
@@ -62,6 +63,13 @@
 
     .input-unset{
       @apply text-slate-300 px-4 border-transparent hover:border-0 hover:border-none focus:shadow-none focus:border-transparent focus-within:border-transparent;
+    }
+
+    .input-focus-effect:focus-within,
+    .input-focus-effect:focus,
+    .input-focus-effect:focus-visible {
+      box-shadow: 1px 1px theme("colors.primary"),
+        -1px -1px theme("colors.primary") !important;
     }
 
     .filter-blur {
@@ -327,7 +335,25 @@
   }
 
   /** FORM **/
-  .form{
-
+  .form label{
+    @apply text-slate-300;
+  }
+  .form .ant-input {
+    padding: var(--input-padding) !important;
+    @apply input-unset border-0;
+  }
+  .form .ant-input,
+  .form .ant-input-affix-wrapper {
+    @apply bg-dark-200 border-0 text-slate-400 input-focus-effect;
+    border-radius: var(--form-input-border-radius);
+  }
+  .form .ant-input-affix-wrapper {
+    @apply p-0 pr-[.8em];
+  }
+  .form .ant-input-affix-wrapper span{
+    @apply text-primary;
+  }
+  .form .ant-input-affix-wrapper .ant-input{
+    @apply hover:border-r-0;
   }
 }
