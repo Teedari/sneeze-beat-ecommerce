@@ -388,4 +388,13 @@
     @apply bg-slate-700 text-slate-200 hover:text-slate-200 focus:border-primary;
   }
 
+  /** Modal **/
+  .custom-modal .ant-modal{
+    
+  }
+  .custom-modal .ant-modal-content,
+  .custom-modal .ant-modal-header
+  {
+    @apply bg-slate-800 border-0;
+  }
 }
