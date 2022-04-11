@@ -356,4 +356,36 @@
   .form .ant-input-affix-wrapper .ant-input{
     @apply hover:border-r-0;
   }
+  .form .ant-select-selector{
+
+    background: theme("backgroundColor.dark-200") !important;
+    border: none !important;
+    height: unset !important;
+    padding: var(--select-padding) !important;
+    border-radius: var(--form-input-border-radius) !important;
+  }
+
+  /* .form .ant-select-open  {
+    @apply input-focus-effect rounded-lg;
+  } */
+  .form .ant-select-open {
+    @apply input-focus-effect rounded-lg;
+  }
+  .form .ant-select-selection-item{
+    @apply text-slate-200;
+  }
+  /** Radio Buttons **/
+  .form .ant-radio-group{
+    @apply flex gap-4;
+  }
+  .form .ant-radio-button-wrapper{
+    @apply bg-dark-700 rounded-lg border-0 checked:border-primary hover:text-slate-200;
+  }
+  .form .ant-radio-button-wrapper:not(:first-child){
+    @apply before:border-0 before:w-0 before:h-0;
+  }
+  .form .ant-radio-button-wrapper-checked{
+    @apply bg-slate-700 text-slate-200 hover:text-slate-200 focus:border-primary;
+  }
+
 }
