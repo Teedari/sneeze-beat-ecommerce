@@ -19,27 +19,32 @@ import Settings from "./pages/admin/settings";
 import BeatUpdate from "./pages/admin/Beat/update.beat";
 import License from "./pages/admin/License";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Page404 from "./pages/common/components/Page404";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={urls.homepage} element={<Homepage />} />
-        <Route path={urls.signin} element={<SignIn />} />
-        <Route path={urls.signup} element={<SignUp />} />
-        <Route path={urls.contact} element={<ContactUs />} />
-        <Route path={urls.beat} element={<BeatPage />} />
-        <Route path={urls.beat_detail} element={<BeatDetail />} />
-        <Route path={urls.checkout} element={<Checkout />} />
-        <Route index path={urls.dashboard} element={<Dashboard />} />
-        <Route path={urls.genre} element={<Genre />} />
-        <Route path={urls.dashboard_beat_create} element={<Beat />} />
-        <Route path={urls.dashboard_beat_list} element={<ListBeats />} />
-        <Route path={urls.dashboard_beat_update} element={<BeatUpdate />} />
-        <Route path={urls.dashboard_messages} element={<Messages />} />
-        <Route path={urls.dashboard_users} element={<Users />} />
-        <Route path={urls.dashboard_license} element={<License />} />
-        <Route path={urls.dashboard_settings} element={<Settings />} />
+        <Route path="/">
+          <Route index element={<Homepage />} />
+          <Route path={urls[404]} element={Page404} />
+          <Route path={urls.signin} element={<SignIn />} />
+          <Route path={urls.signup} element={<SignUp />} />
+          <Route path={urls.contact} element={<ContactUs />} />
+          <Route path={urls.beat} element={<BeatPage />} />
+          <Route path={urls.beat_detail} element={<BeatDetail />} />
+          <Route path={urls.checkout} element={<Checkout />} />
+          <Route index path={urls.dashboard} element={<Dashboard />} />
+          <Route path={urls.genre} element={<Genre />} />
+          <Route path={urls.dashboard_beat_create} element={<Beat />} />
+          <Route path={urls.dashboard_beat_list} element={<ListBeats />} />
+          <Route path={urls.dashboard_beat_update} element={<BeatUpdate />} />
+          <Route path={urls.dashboard_messages} element={<Messages />} />
+          <Route path={urls.dashboard_users} element={<Users />} />
+          <Route path={urls.dashboard_license} element={<License />} />
+          <Route path={urls.dashboard_settings} element={<Settings />} />
+
+        </Route>
       </Routes>
     </BrowserRouter>
   );

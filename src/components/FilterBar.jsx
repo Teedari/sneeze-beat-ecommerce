@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { beatGoTo } from "../utils/helpers";
 import urls from "../utils/routes/page.routes";
 import SearchBar from "./SearchBar";
 
@@ -9,7 +10,6 @@ const FilterBar = () => {
   const [params] = useSearchParams()
   console.log(params.getAll('query'))
 
-  const beatGoTo= param => ({pathname: urls.beat, search: `?query=${param}`})
   return (
     <nav className="md:bg-dark-400 gap-4 rounded-full py-2 px-2 flex items-center justify-between flex-col md:flex-row">
       <ul className="flex gap-4 m-0 flex-wrap pl-2">
@@ -43,9 +43,9 @@ const FilterBar = () => {
         </li>
         <li>
           <Link 
-            className={params.getAll('query').includes('raggae') ? activeClass : inActiveClass} 
-            to={beatGoTo('raggae')}>
-            raggae
+            className={params.getAll('query').includes('r_and_b') ? activeClass : inActiveClass} 
+            to={beatGoTo('R_and_B')}>
+            {"R&B"}
           </Link>
         </li>
       </ul>
