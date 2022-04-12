@@ -8,7 +8,7 @@ import { turnOffPlayer , playMusic, stopMusic} from '../state_management/slices/
 
 // import music from '../assets/music/ArrDee x Aitch War.mp3'
 const MusicPlayer = () => {
-  const [isMinimized, setIsMinimized] = useState(false)
+  const [isMinimized, setIsMinimized] = useState(true)
   const [isLoopMode, setIsLoopMode] = useState(false)
 
   const minimizeClass = 'bg-dark-800 rounded-b-2xl text-center py-8'
@@ -44,12 +44,12 @@ const MusicPlayer = () => {
     console.log(count)
   }
   return (
-    <div className='fixed max-w-[20rem] w-full right-0 top-1/2 -translate-y-1/2 rounded-3xl p-2 bg-dark-200'>
+    <div className='fixed max-w-[20rem] w-full right-0 top-1/2 -translate-y-1/2 rounded-3xl p-2 bg-dark-200 z-40'>
       <div className='bg-dark-300 rounded-2xl max-h-[600px] h-full flex flex-col justify-between relative'>
         <div className='absolute top-0 z-40 right-0 px-2 flex gap-4'>
-          <button 
+          {/* <button 
             onClick={() => setIsMinimized((prev, next) => !prev)}
-            className='text-xl hover:scale-105 focus:text-red-700'><FontAwesomeIcon icon={faMinus} /></button>
+            className='text-xl hover:scale-105 focus:text-red-700'><FontAwesomeIcon icon={faMinus} /></button> */}
           <button onClick={hideMusicPlayer} className='text-xl hover:scale-105 focus:text-red-700'><FontAwesomeIcon icon={faClose} /></button>
         </div>
         <div hidden={isMinimized} className='h-[350px] rounded-2xl text-center flex flex-col items-center justify-center  bg-[url("https://images.unsplash.com/photo-1547355253-ff0740f6e8c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80")] bg-cover bg-center bg-blend-darken flex-auto filter-blur'>
