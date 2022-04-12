@@ -5,10 +5,12 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'account-svg': "url('./assets/svgs/happy_music.svg')",
+        'account-svg': "url('./assets/svgs/access_account.svg')",
         'genre-card-svg': "url('./assets/svgs/compose.svg')",
         'placeholder-img': "url('./assets/images/hero3.jpg')",
         'no-image': "url('./assets/svgs/no-image.svg')",
+        '404': "url('./assets/brand/404.png')",
+        'logo': "url('./assets/brand/logo.png')",
       },
       colors: {
         'primary': '#fcb363',

@@ -356,4 +356,154 @@
   .form .ant-input-affix-wrapper .ant-input{
     @apply hover:border-r-0;
   }
+  .form .ant-select-selector{
+
+    background: theme("backgroundColor.dark-200") !important;
+    border: none !important;
+    height: unset !important;
+    padding: var(--select-padding) !important;
+    border-radius: var(--form-input-border-radius) !important;
+  }
+
+  /* .form .ant-select-open  {
+    @apply input-focus-effect rounded-lg;
+  } */
+  .form .ant-select-open {
+    @apply input-focus-effect rounded-lg;
+  }
+  .form .ant-select-selection-item{
+    @apply text-slate-200;
+  }
+  /** Radio Buttons **/
+  .form .ant-radio-group{
+    @apply flex gap-4;
+  }
+  .form .ant-radio-button-wrapper{
+    @apply bg-dark-700 rounded-lg border-0 checked:border-primary hover:text-slate-200;
+  }
+  .form .ant-radio-button-wrapper:not(:first-child){
+    @apply before:border-0 before:w-0 before:h-0;
+  }
+  .form .ant-radio-button-wrapper-checked{
+    @apply bg-slate-700 text-slate-200 hover:text-slate-200 focus:border-primary;
+  }
+
+  /** Modal **/
+  .custom-modal .ant-modal{
+    
+  }
+  .custom-modal .ant-modal-content,
+  .custom-modal .ant-modal-header
+  {
+    @apply bg-slate-800 border-0;
+  }
+  /** Table **/
+  .custom-table .ant-table,
+  .custom-table .ant-table-thead > tr > th ,
+  .custom-table .ant-pagination-item-link,
+  .custom-table .ant-pagination-item-active {
+    @apply bg-transparent;
+  }
+  .custom-table .ant-table-tbody tr:nth-child(even){
+    background: theme('backgroundColor.slate.900') !important;
+  }
+  .custom-table .ant-table-thead tr .ant-table-cell{
+    @apply border-slate-600 bg-slate-900 font-semibold text-slate-300;
+  }
+  .custom-table .ant-table-tbody .ant-table-row:hover .ant-table-cell{
+    @apply bg-dark-100;
+  }
+  .custom-table .ant-table-row .ant-table-cell {
+    @apply border-0 text-white;
+  }
+      /** pagination styles table **/
+  .custom-table .ant-pagination-item-link,
+  .custom-table .ant-pagination-item-active {
+    @apply rounded-full text-slate-500 border-0 bg-slate-700 w-10 h-10 flex items-center justify-center;
+  }
+  .custom-table .ant-pagination-item-active{
+    @apply bg-slate-900;
+  }
+  .custom-table .ant-pagination-item-active a{
+    @apply text-primary font-semibold;
+  }
+  
+  /** Tabs **/
+  .custom-tab .ant-tabs-nav-list .ant-tabs-tab{
+    @apply font-semibold;
+  }
+  .custom-tab .ant-tabs-nav-list .ant-tabs-tab-active .ant-tabs-tab-btn{
+    color: theme('colors.primary') !important;
+  }
+  .custom-tab .ant-tabs-nav-list .ant-tabs-tab .ant-tabs-tab-disabled{
+    color: theme('colors.slate.800') !important;
+  }
+  .custom-tab .ant-tabs-nav-list .ant-tabs-ink-bar{
+    @apply bg-red-600;
+  }
+
+  /** MY COMPONENTS **/
+  /* Tile */
+  .tile{
+    @apply border border-slate-800 rounded-lg flex items-center gap-4 py-4 px-3 shadow-lg relative  overflow-hidden;
+  }
+  .tile-image{
+    @apply w-16 h-16 rounded-lg;
+  }
+  .tile-image img{
+    @apply rounded-lg;
+  }
+  .tile-absolute{
+    @apply absolute bg-primary h-full left-0 w-full right-0 translate-x-full transition-transform;
+  }
+  .tile:hover .tile-absolute {
+    @apply translate-x-0;
+  }
+  .tile-cart{
+    @apply bg-dark-400 gap-4 rounded-full py-2 px-3 flex items-center relative overflow-hidden cursor-pointer;
+  }
+  .tile-cart:hover .tile-cart-absolute{
+    @apply mr-2 translate-x-0;
+  }
+  .tile-cart-absolute {
+    @apply w-12 h-12 px-5 py-2 rounded-full bg-red-400 center absolute right-0 translate-x-full transition-transform;
+  }
+
+  /* dashboard card component */
+  .dashboard-card{
+    @apply p-4 rounded-lg flex flex-col gap-4 relative z-[2];
+  }
+  .dashboard-card::before{
+    @apply content-[''] absolute w-full h-full bg-slate-900 top-0 left-0 rounded-lg z-[-1] rounded-tl-[2.5rem] rounded-br-[2.5rem];
+  }
+  .dashboard-card::after{
+    @apply content-[''] absolute w-full h-full bg-primary top-0 left-0 rounded-xl z-[-2];
+  }
+
 }
+
+/* .ant-menu-inline-collapsed {
+  padding: 0.8em;
+  .ant-menu-submenu-selected {
+    .ant-menu-submenu-title {
+      background: transparent;
+      color: $primary-color;
+    }
+  }
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+    border-radius: 0.8rem !important;
+    background: rgba($color: #000000, $alpha: 0.2);
+  }
+}
+.ant-menu-submenu-popup {
+  .ant-menu-sub {
+    background-color: #0f172a !important;
+    .ant-menu-item {
+      &-selected {
+        background: $primary-color !important;
+        color: $secondary-color;
+      }
+    }
+  }
+} */
