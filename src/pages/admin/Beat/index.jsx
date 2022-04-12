@@ -50,6 +50,7 @@ const Beat = () => {
         <h4>Beat Creation</h4>
       </div>
       <Tabs
+        className='custom-tab'
         activeKey={activeKey}
         defaultActiveKey={activeKey}
         onChange={onChangeTab}>
