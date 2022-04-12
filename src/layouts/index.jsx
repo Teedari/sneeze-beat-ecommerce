@@ -5,16 +5,23 @@ import Header from "./header";
 import PropTypes from "prop-types";
 import FloatActionButtons from "../components/FloatActionButtons";
 import AdminLayout from "./admin";
+import { useLocation } from "react-router-dom";
+import urls from "../utils/routes/page.routes";
 
 
 
 
 
 const UserLayout = ({ children, hideFooter, hideHeader }) => {
-
+  const location = useLocation()
+  const floatActionButtonMiddleWare = urls => {
+    if(!urls.includes(location.pathname)){
+      return <FloatActionButtons />
+    }
+  }
   return (
     <Layout id="layout-user" className="layout-user">
-      <FloatActionButtons />
+      {floatActionButtonMiddleWare([urls.contact])}
       {hideHeader || <Header />}
       <div className="layout-content">
         <div className="">
