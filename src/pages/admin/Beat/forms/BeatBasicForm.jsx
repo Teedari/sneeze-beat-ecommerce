@@ -4,6 +4,7 @@ import FormWrapper from "../../../../components/FormWrapper";
 import random from "random-number";
 import { useSelector } from "react-redux";
 import { HttpStatus } from "../../../../state_management/types";
+import genreData from "../../../../data/genre.json";
 
 const arr = ["GAD2112", "GAD1344", "HGA1239"];
 const BeatBasicForm = ({ ...props }) => {
@@ -88,10 +89,9 @@ const BeatBasicForm = ({ ...props }) => {
             rules={[{ required: true, message: "Genre field is required" }]}>
             <Select defaultValue="">
               <Select.Option disabled>Select genre type</Select.Option>
-              <Select.Option value="hip pop">Hip pop</Select.Option>
-              <Select.Option value="drill">Drill</Select.Option>
-              <Select.Option value="dancehall">Dance Hall</Select.Option>
-              <Select.Option value="raggae">Raggae</Select.Option>
+              {genreData.map((genre) => (
+                <Select.Option value={genre.label.toLowerCase()}>{genre?.label}</Select.Option>
+              ))}
             </Select>
           </Form.Item>
         </Col>
@@ -117,23 +117,22 @@ const BeatBasicForm = ({ ...props }) => {
       </Form.Item>
       <Row gutter={[14]}>
         <Col sm={24} md={12}>
-        <Form.Item
-          name="general_price"
-          label="MP3 (Price)"
-          className="flex-1"
-          rules={[{ required: true, message: "Price field is required" }]}>
-          <Input type="number" />
-        </Form.Item>
+          <Form.Item
+            name="general_price"
+            label="MP3 (Price)"
+            className="flex-1"
+            rules={[{ required: true, message: "Price field is required" }]}>
+            <Input type="number" />
+          </Form.Item>
         </Col>
         <Col sm={24} md={12}>
-
-        <Form.Item
-          name="exclusive_price"
-          label="Exclusive (Price)"
-          className="flex-1"
-          rules={[{ required: true, message: "Price field is required" }]}>
-          <Input type="number" />
-        </Form.Item>
+          <Form.Item
+            name="exclusive_price"
+            label="Exclusive (Price)"
+            className="flex-1"
+            rules={[{ required: true, message: "Price field is required" }]}>
+            <Input type="number" />
+          </Form.Item>
         </Col>
       </Row>
       <div className="flex justify-end">

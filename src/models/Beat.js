@@ -7,12 +7,13 @@ class Beat {
   static _docRef = key => doc(db, Beat._tb_name, key)
 
 
-  static create = (name, genre, bpm, general_price, exclusive_price, path, coverUrl="", beatUrl="", exclusive_url="") => {
+  static create = (name, genre, bpm, general_price, exclusive_price, path, category, coverUrl="", beatUrl="", exclusive_url="") => {
     return addDoc(Beat._collectionRef, {
       name,
       genre,
       bpm,
       path,
+      category,
       exclusive: {
         label: 'EXCLUSIVE',
         price: exclusive_price,
@@ -34,11 +35,12 @@ class Beat {
     return getDocs(Beat._collectionRef)
   }
 
-  static update = (key, name, genre, bpm, general_price, exclusive_price, exclusive_url="") => {
+  static update = (key, name, genre, bpm, category, general_price, exclusive_price, exclusive_url="") => {
     return updateDoc(Beat._docRef(key), {
       name,
       genre,
       bpm,
+      category,
       exclusive: {
         label: 'EXCLUSIVE',
         price: exclusive_price,
