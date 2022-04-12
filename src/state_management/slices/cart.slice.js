@@ -11,7 +11,9 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart: ( state, {payload}) => {
-      state.items.push(payload)
+      const price = payload.type.toLowerCase() === 'general' ? payload.data?.general?.price : payload.data?.exclusive?.price
+      const label = payload.type.toLowerCase() === 'general' ? payload.data?.general?.label : payload.data?.exclusive?.label
+      state.items.push({name: payload.data?.name, assets: payload.data?.assets, price, label})
       state.count = state.items.length
     },
     removeItemFromCart: ( state, {payload} ) => {

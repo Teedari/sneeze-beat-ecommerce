@@ -9,12 +9,31 @@ const initialState = {
   fetchingState: HttpStatus.IDLE,
   sendingState: HttpStatus.IDLE,
   list: [],
+  category: {
+    recommended: [],
+    trending: []
+  },
+  queried: [],
   count: 0
 };
 
 const beatSlice = createSlice({
   name: "beatSlice",
   initialState,
+  reducers: {
+    getRecommendedBeats: (state, {paylod}) => {
+      const recommended = state.list.filter( beat => beat.category === 'recommended')
+      state.category.recommended = recommended
+    },
+    getTrendingBeats: (state, {paylod}) => {
+      const trending = state.list.filter( beat => beat.category === 'trending')
+      state.category.trending = trending
+    },
+    getBeatListByGenre: (state, {payload}) => {
+      const genre_beat = state.list.filter( beat => beat.genre === payload)
+      state.queried = genre_beat
+    },
+  },
   extraReducers: {
     /** PENDING REQUEST */
     [beatCreateThunk.pending.type]: (state, actions) => {
@@ -72,4 +91,5 @@ const beatSlice = createSlice({
   },
 });
 
+export const {getRecommendedBeats, getTrendingBeats, getBeatListByGenre}  = beatSlice.actions
 export default beatSlice.reducer;
