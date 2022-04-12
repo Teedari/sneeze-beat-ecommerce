@@ -8,7 +8,9 @@ import getPlaylistThunk from "../../state_management/thunks/deezer.thunk";
 import CustomPlayList2 from "../../components/Playlist2";
 import MusicCard from "../../components/MusicCard";
 import { HttpStatus } from "../../state_management/types";
-// import User from "../../models/User";
+import genreData from '../../data/genre.json'
+import { Link } from "react-router-dom";
+import { beatGoTo } from "../../utils/helpers";
 
 
 function Homepage() {
@@ -36,20 +38,17 @@ function Homepage() {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-col-6 gap-4">
               <div className="showcase md:col-start-1 md:col-span-3 md:h-72">
-                <h3>Drill</h3>
+               <Link to={beatGoTo('Drill')} ><h3>Drill</h3></Link>
               </div>
               <div className="md:col-start-4 md:col-span-3 grid grid-col-6 gap-4  rounded-lg ">
                 <div className="showcase col-span-6">
-                  {" "}
-                  <h3>Hip pop</h3>
+                <Link to={beatGoTo('Hip Pop')} ><h3>Hip pop</h3></Link>
                 </div>
                 <div className="col-start-1 col-span-3 showcase text-white">
-                  {" "}
-                  <h3>Afro Pop</h3>
+                <Link to={beatGoTo('Afro Pop')} ><h3>Afro Pop</h3></Link>
                 </div>
                 <div className="col-start-4 col-span-3 showcase text-white">
-                  {" "}
-                  <h3>Reggae</h3>
+                <Link to={beatGoTo('R_and_B')} ><h3>{'R&B'}</h3></Link>
                 </div>
               </div>
             </div>
