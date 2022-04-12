@@ -3,6 +3,7 @@ const BASE_DASHBOARD_URL = `${BASE_PAGE_URL}dashboard`
 
 export const user_urls = {
   'homepage': BASE_PAGE_URL,
+  '404': `${BASE_PAGE_URL}404`,
   'signup': `${BASE_PAGE_URL}register`,
   'signin': `${BASE_PAGE_URL}login`,
   'contact': `${BASE_PAGE_URL}contact-us`,
