@@ -13,8 +13,16 @@ const cartSlice = createSlice({
     addItemToCart: ( state, {payload}) => {
       const price = payload.type.toLowerCase() === 'general' ? payload.data?.general?.price : payload.data?.exclusive?.price
       const label = payload.type.toLowerCase() === 'general' ? payload.data?.general?.label : payload.data?.exclusive?.label
-      state.items.push({name: payload.data?.name, assets: payload.data?.assets, price, label})
-      state.count = state.items.length
+      const data = {key: payload.data?.key, name: payload.data?.name, assets: payload.data?.assets, price, label}
+      const exists = state.items.findIndex( item => item.key === payload.data?.key)
+      console.log(exists)
+      if(exists !== -1){
+        state.items[exists] = data
+      }else{
+
+        state.items.push(data)
+        state.count = state.items.length
+      }
     },
     removeItemFromCart: ( state, {payload} ) => {
       const items = state.items.filter( item => item.id !== payload?.id)

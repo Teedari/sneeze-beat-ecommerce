@@ -49,7 +49,7 @@ const beatSlice = createSlice({
       state.sendingState = HttpStatus.PENDING;
     },
 
-    /** FULFILED REQUESTS */
+    /** FULFILED REQUESTS **/
     [beatCreateThunk.fulfilled.type]: (state, { payload }) => {
       state.list.push(payload);
       state.sendingState = HttpStatus.FULFILLED;

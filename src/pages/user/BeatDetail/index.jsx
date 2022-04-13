@@ -61,13 +61,13 @@ const BeatDetail = () => {
         </div>
         <br/>
         <div className='flex gap-4 justify-center'>
-          <button className='relative text-left px-4 py-3  hover:bg-dark-500 hover:c-shadow hover:border-none border border-slate-700 rounded-xl w-60' onClick={() => dispatch(addItemToCart({data: selectedTrack, type: 'GENERAL'}))}>
+          <button className='relative text-left px-4 py-3  hover:bg-dark-500 hover:c-shadow hover:border-none border border-slate-700 rounded-xl w-60' onClick={() => dispatch(addItemToCart({data: selectedTrack, type: 'general'}))}>
             <div>
               <h5 className='text-primary capitalize font-semibold'>{selectedTrack?.general?.label}</h5>
               <p className='m-0'>$ {selectedTrack?.general?.price}</p>
             </div>
           </button>
-          <button className='relative text-left px-4 py-3  hover:bg-dark-500 hover:c-shadow hover:border-none border border-slate-700 rounded-xl w-60' onClick={() => dispatch(addItemToCart({data: selectedTrack, type: 'EXCLUSIVE'}))}>
+          <button className='relative text-left px-4 py-3  hover:bg-dark-500 hover:c-shadow hover:border-none border border-slate-700 rounded-xl w-60' onClick={() => dispatch(addItemToCart({data: selectedTrack, type: 'exclusive'}))}>
             <div>
               <h5 className='text-primary capitalize font-semibold'>{selectedTrack?.exclusive?.label}</h5>
               <p className='m-0'>$ {selectedTrack?.exclusive?.price}</p>
