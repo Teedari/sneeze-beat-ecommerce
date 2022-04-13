@@ -20,7 +20,6 @@ const BeatPage = () => {
   }, [params])
 
   useEffect(() => {
-    console.log(findGenre)
     dispatch(getBeatListByGenre(findGenre))
   }, [dispatch, findGenre])
   return (
