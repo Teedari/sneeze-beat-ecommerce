@@ -30,7 +30,11 @@ const beatSlice = createSlice({
       state.category.trending = trending
     },
     getBeatListByGenre: (state, {payload}) => {
-      const genre_beat = state.list.filter( beat => beat.genre === payload)
+      if(payload === '' || payload.toLowerCase() === 'all'){
+        state.queried = state.list
+        return;
+      }
+      const genre_beat = state.list.filter( beat => beat.genre.toLowerCase() === payload.toLowerCase())
       state.queried = genre_beat
     },
   },

@@ -4,11 +4,10 @@ import { beatGoTo } from "../utils/helpers";
 import urls from "../utils/routes/page.routes";
 import SearchBar from "./SearchBar";
 
-const FilterBar = () => {
+const FilterBar = ({params}) => {
   const inActiveClass = 'text-slate-200 capitalize font-bold text-slate-200 capitalize font-bold'
   const activeClass = 'border bg-dark-700 border-primary text-primary px-2 py-1 rounded-full'
-  const [params] = useSearchParams()
-  console.log(params.getAll('query'))
+
 
   return (
     <nav className="md:bg-dark-400 gap-4 rounded-full py-2 px-2 flex items-center justify-between flex-col md:flex-row">
@@ -29,22 +28,22 @@ const FilterBar = () => {
         </li>
         <li>
           <Link 
-             className={params.getAll('query').includes('hippop') ? activeClass : inActiveClass}  
-             to={beatGoTo('hippop')}>
+             className={params.getAll('query').includes('hip_pop') ? activeClass : inActiveClass}  
+             to={beatGoTo('hip pop')}>
             hip pop
           </Link>
         </li>
         <li>
           <Link 
-            className={params.getAll('query').includes('afropop') ? activeClass : inActiveClass}
-            to={beatGoTo('afropop')}>
+            className={params.getAll('query').includes('afro_pop') ? activeClass : inActiveClass}
+            to={beatGoTo('afro pop')}>
             afro pop
           </Link>
         </li>
         <li>
           <Link 
             className={params.getAll('query').includes('r_and_b') ? activeClass : inActiveClass} 
-            to={beatGoTo('R_and_B')}>
+            to={beatGoTo('R&B')}>
             {"R&B"}
           </Link>
         </li>
