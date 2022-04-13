@@ -71,19 +71,19 @@ const FloatActionButtons = () => {
             <ul className="flex flex-col gap-3">
               {cartState.items.map((item, index) => (
                 <li key={index.toString()} className="tile-cart ">
-                  <Avatar size={"large"} src={item?.album?.cover} />
+                  <Avatar size={"large"} src={item?.assets?.cover} />
                   <div className="flex-auto">
                     <h4 className="text-slate-400 truncate w-72">
-                      {item?.title}
+                      {item?.name}
                     </h4>
-                    <small className="text-sm text-white">Exclusive</small>
+                    <small className="text-sm text-white">{item?.label}</small>
                   </div>
                   <span className="divide-y divide-dashed"></span>
-                  <h5 className="text-primary">$12</h5>
+                  <h5 className="text-primary">$ {item.price}</h5>
                   <button
                     className="tile-cart-absolute"
                     onClick={() =>
-                      dispatch(removeItemFromCart({ id: item?.id }))
+                      dispatch(removeItemFromCart({ id: item?.key }))
                     }>
                     <FontAwesomeIcon size="md" icon={faTrashCan} />
                   </button>
