@@ -27,7 +27,7 @@ const ListBeats = () => {
         return (<small className="text-sm font-semibold bg-yellow-300 px-2 py-1 text-black rounded-lg capitalize">{beat.genre}</small>)
       }
     }},
-    
+    {title: 'Category', dataIndex: 'category', key: 'category'},
     { title: "Actions", dataIndex: "actions", key: "actions",
       render: (_, beat) => {
         return <Space>

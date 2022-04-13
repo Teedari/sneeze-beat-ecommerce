@@ -11,13 +11,20 @@ import { HttpStatus } from "../../state_management/types";
 import genreData from '../../data/genre.json'
 import { Link } from "react-router-dom";
 import { beatGoTo } from "../../utils/helpers";
+import beatFetchThunk from "../../state_management/thunks/beat/beat.fetch.thunk";
+import { getRecommendedBeats, getTrendingBeats } from "../../state_management/slices/beat.slice";
 
 
 function Homepage() {
   const dispatch = useDispatch()
-  const deezer = useSelector( state => state.deezer)
+  const beat = useSelector( state => state.beat)
   useEffect(() => {
-    dispatch(getPlaylistThunk())
+    // dispatch(getPlaylistThunk())
+    dispatch(beatFetchThunk()).unwrap()
+    .then( success =>  {
+      dispatch(getRecommendedBeats())
+      dispatch(getTrendingBeats())
+    })
   }, [dispatch])
 
   return (
@@ -62,7 +69,7 @@ function Homepage() {
           </h2>
         </div>
         {/** Playlist grid */}
-        <CustomPlayList2 loading={deezer.fetchState !== HttpStatus.FULFILLED} dataSource={deezer?.playlist.recommended} MyItem={MusicCard} />
+        <CustomPlayList2 loading={beat.fetchingState !== HttpStatus.FULFILLED} dataSource={beat?.category?.recommended} MyItem={MusicCard} />
       </div>
       <div className="recommended container py-4">
         <div className="heading">
@@ -71,7 +78,7 @@ function Homepage() {
           </h2>
         </div>
         {/** Playlist grid */}
-        <CustomPlayList2 loading={deezer.fetchState !== HttpStatus.FULFILLED} dataSource={deezer?.playlist.trending} MyItem={MusicCard} />
+        <CustomPlayList2 loading={beat.fetchingState !== HttpStatus.FULFILLED} dataSource={beat?.category?.trending} MyItem={MusicCard} />
       </div>
       <div className="bg-dark-100">
         <div className="container container-block">

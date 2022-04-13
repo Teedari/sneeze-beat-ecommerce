@@ -22,7 +22,7 @@ const CustomPlayList2 = ({loading, pageSize, dataSource, MyItem}) => {
       }}
       renderItem={(data, index) => (
         <Skeleton loading={loading} active>
-          <MyItem key={index} {...data} cover={data.album.cover}/>
+          <MyItem key={index} id={data?.key} cover={data.assets?.cover} title={data?.name} bpm={data?.bpm} beat={data.assets?.beat} />
         </Skeleton>
       )}></List>
   );

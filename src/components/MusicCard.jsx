@@ -6,12 +6,12 @@ import { playMusic, setCurrentTrack } from "../state_management/slices/ui.slice"
 import { useNavigate } from "react-router-dom";
 import urls from "../utils/routes/page.routes";
 
-const MusicCard = ({id, cover, title, preview}) => {
+const MusicCard = ({id, cover, title, bpm,  beat}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const playMusicHandler = () => {
-    dispatch(setCurrentTrack({cover: cover, music: preview, title}))
+    dispatch(setCurrentTrack({cover: cover, music: beat, title}))
     dispatch(playMusic())
   }
   return (
@@ -29,7 +29,7 @@ const MusicCard = ({id, cover, title, preview}) => {
           <FontAwesomeIcon icon={faEye} /> <small>33</small>
         </span>
         <h4 className="text-primary cursor-pointer"  onClick={() => navigate(urls.beat_detail.replace(':beatID', id))}>{title}</h4>
-        <span className="text-slate-400">150BPM</span>
+        <span className="text-slate-400">{bpm}BPM</span>
       </div>
     </div>
   );
