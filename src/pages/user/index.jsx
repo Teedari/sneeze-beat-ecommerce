@@ -4,16 +4,13 @@ import mobileImgUrl from '../../assets/images/mobile.png'
 import CustomLayout from "../../layouts";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from "react";
-import getPlaylistThunk from "../../state_management/thunks/deezer.thunk";
 import CustomPlayList2 from "../../components/Playlist2";
 import MusicCard from "../../components/MusicCard";
 import { HttpStatus } from "../../state_management/types";
-import genreData from '../../data/genre.json'
 import { Link } from "react-router-dom";
 import { beatGoTo } from "../../utils/helpers";
 import beatFetchThunk from "../../state_management/thunks/beat/beat.fetch.thunk";
 import { getRecommendedBeats, getTrendingBeats } from "../../state_management/slices/beat.slice";
-import { auth } from "../../configs/firebase.config";
 import PersistentStorage from "../../utils/persistent_storage/storage.persistent";
 
 
@@ -21,9 +18,7 @@ function Homepage() {
   const dispatch = useDispatch()
   const beat = useSelector( state => state.beat)
   useEffect(() => {
-    // dispatch(getPlaylistThunk())
     console.log(PersistentStorage.getUserHasLoggedIn())
-    console.log('CURRENT', auth.currentUser)
     dispatch(beatFetchThunk()).unwrap()
     .then( success =>  {
       dispatch(getRecommendedBeats())
