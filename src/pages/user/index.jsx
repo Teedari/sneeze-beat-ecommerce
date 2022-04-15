@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import { beatGoTo } from "../../utils/helpers";
 import beatFetchThunk from "../../state_management/thunks/beat/beat.fetch.thunk";
 import { getRecommendedBeats, getTrendingBeats } from "../../state_management/slices/beat.slice";
+import { auth } from "../../configs/firebase.config";
+import PersistentStorage from "../../utils/persistent_storage/storage.persistent";
 
 
 function Homepage() {
@@ -20,6 +22,8 @@ function Homepage() {
   const beat = useSelector( state => state.beat)
   useEffect(() => {
     // dispatch(getPlaylistThunk())
+    console.log(PersistentStorage.getUserHasLoggedIn())
+    console.log('CURRENT', auth.currentUser)
     dispatch(beatFetchThunk()).unwrap()
     .then( success =>  {
       dispatch(getRecommendedBeats())

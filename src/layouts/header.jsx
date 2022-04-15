@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import urls from "../utils/routes/page.routes";
+import PersistentStorage from "../utils/persistent_storage/storage.persistent";
 const Header = () => {
   const [toggleNavbar, setToggleNavbar] = useState(false);
 
@@ -34,13 +35,23 @@ const Header = () => {
             <span className="border-l border-slate-700"></span>
           </li>
           <li className="flex gap-4 items-center justify-center flex-col mt-4 md:mt-0 md:justify-start md:flex-row">
-            {" "}
-            <Link to={urls.signin} className="">
-              <span className="font-semibold">Sign in</span>
-            </Link>
-            <Link to={urls.signup} className="btn btn-primary">
-              Register
-            </Link>
+            {!PersistentStorage.getUserHasLoggedIn() ? (
+              <>
+                {" "}
+                <Link to={urls.signin} className="">
+                  <span className="font-semibold">Sign in</span>
+                </Link>
+                <Link to={urls.signup} className="btn btn-primary">
+                  Register
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to={urls.signup} className="btn btn-primary">
+                  Logout
+                </Link>
+              </>
+            )}
           </li>
         </ul>
         {/* <div className='flex gap-2 justify-center flex-col mt-4 md:mt-0 md:justify-start md:flex-row'>

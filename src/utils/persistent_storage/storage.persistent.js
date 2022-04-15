@@ -27,7 +27,9 @@ class PersistentStorage {
   static __setUserHasLoggedIn = (flag=true) => {
     PersistentStorage.__setStorageData(PersistentStorage._USER_HAS_LOGGED_IN, flag)
   }
-  static getUserHasLoggedIn = () =>  PersistentStorage.__getStorageData(PersistentStorage._USER_HAS_LOGGED_IN)
+  static getUserHasLoggedIn = () =>  {
+    return PersistentStorage.__getStorageData(PersistentStorage._USER_HAS_LOGGED_IN) === null ? false : true;
+  }
 
 
   static activateUser = data => {

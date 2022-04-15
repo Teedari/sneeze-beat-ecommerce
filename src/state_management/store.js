@@ -8,6 +8,7 @@ import genreSlice from './slices/genre.slice'
 import beatSlice from './slices/beat.slice'
 import messageSlice from './slices/message.slice'
 import licenseSlice from './slices/license.slice'
+import authSlice from './slices/auth.slice'
 
 const rootReducer = combineReducers({
   ui: uiSlice,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   genre: genreSlice,
   beat: beatSlice,
   message: messageSlice,
-  license: licenseSlice
+  license: licenseSlice,
+  auth: authSlice,
 })
 
 
