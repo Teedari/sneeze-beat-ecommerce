@@ -17,6 +17,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'authSlice',
   initialState,
+  reducers: {
+    deactivateUser: (state, actions) => {
+      state.isAuthenticated = false
+    }
+  },
   extraReducers: {
     /** PENDING REQUESTS */
     [authSignUpThunk.pending.type]: (state, actions) =>{
@@ -45,5 +50,5 @@ const authSlice = createSlice({
   }
 })
 
-
+export const { deactivateUser } = authSlice.actions 
 export default authSlice.reducer
