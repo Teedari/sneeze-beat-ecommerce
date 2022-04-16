@@ -8,7 +8,7 @@ const authSignUpThunk = createAsyncThunk(
   async ({formData, navigate}, { dispatch, fulfillWithValue, rejectWithValue }) => {
     return Auth.signUpWithEmailAndPassword(formData.email, formData.password)
     .then( userCredential => {
-      const user = {email: userCredential.user.email, username: formData.username, fullname: formData.fullname}
+      const user = {email: userCredential.user.email, username: formData.username}
       dispatch(authCreateUserThunk({user, navigate}))
       return fulfillWithValue()
     })

@@ -11,7 +11,7 @@ const authCreateUserThunk = createAsyncThunk(
     .then( snaphot => {
       PersistentStorage.activateUser(user)
       navigate(urls.homepage)
-      return fulfillWithValue(snaphot.id)
+      return fulfillWithValue(user)
     })
     .catch( error  => {
       navigate(urls.signin)
