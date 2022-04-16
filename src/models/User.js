@@ -8,10 +8,11 @@ class UserProfile {
   static _collectionRef = collection(db, 'tb_user_profile')
   static _docRef = doc(collection(db, 'tb_user_profile'))
   
-  static createUser = (username, email) => {
+  static createUser = (username, email, fullname) => {
     return addDoc(UserProfile._collectionRef, {
       username,
       email,
+      fullname,
       userRole: UserProfile.USER_ROLE,
       photo: ""
     })

@@ -8,9 +8,11 @@ const initialState = {
   userInfo: {
     email: "",
     username: "",
+    fullname: ""
   },
   isAuthenticated: false,
   fetchingState: HttpStatus.IDLE,
+  creatingUserState: HttpStatus.IDLE
 }
 const authSlice = createSlice({
   name: 'authSlice',
@@ -21,16 +23,17 @@ const authSlice = createSlice({
       state.fetchingState = HttpStatus.PENDING
     },
     [authCreateUserThunk.pending.type]: (state, actions) =>{
-      state.fetchingState = HttpStatus.PENDING
+      state.creatingUserState = HttpStatus.PENDING
     },
     /** FULFILLED REQUESTS */
     [authSignUpThunk.fulfilled.type]: (state, {payload}) => {
       state.fetchingState = HttpStatus.REJECTED
     },
     [authCreateUserThunk.fulfilled.type]: (state, {payload}) =>{
-      // state.userInfo.email = payload.email
-      // state.userInfo.username = payload.username
-      // state.fetchingState = HttpStatus.FULFILLED
+      state.userInfo.email = payload?.email
+      state.userInfo.username = payload?.username
+      state.userInfo.fullname = payload?.fullname
+      state.creatingUserState = HttpStatus.FULFILLED
     },
     /** REJECTED REQUESTS */
     [authSignUpThunk.rejected.type]: (state, actions) => {
