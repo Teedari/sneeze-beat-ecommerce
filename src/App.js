@@ -20,18 +20,20 @@ import BeatUpdate from "./pages/admin/Beat/update.beat";
 import License from "./pages/admin/License";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Page404 from "./pages/common/components/Page404";
-const ProtectedRoutes = ({ children }) => {
-  // const location = useLocation()
-  const flag = true;
-  if (flag) {
-    return <Navigate to="/login?redirect=checkout" state={{ from: "sdf" }} replace />;
-  }
-  return (
-    <Routes>
-      <Route index element={<Checkout />} />
-    </Routes>
-  );
-};
+import PersistentStorage from "./utils/persistent_storage/storage.persistent";
+import LoginRequiredRoutes from "./utils/middlewares/login_requried.mw";
+// const LoginRequiredRoute = ({ children }) => {
+//   // const location = useLocation()
+//   const flag = PersistentStorage.getUserHasLoggedIn();
+//   if (!flag) {
+//     return <Navigate to="/login?redirect=checkout" state={{ from: "sdf" }} replace />;
+//   }
+//   return (
+//     <Routes>
+//       <Route index element={<Checkout />} />
+//     </Routes>
+//   );
+// };
 function App() {
   return (
     <BrowserRouter>
@@ -44,7 +46,7 @@ function App() {
           <Route path={urls.contact} element={<ContactUs />} />
           <Route path={urls.beat} element={<BeatPage />} />
           <Route path={urls.beat_detail} element={<BeatDetail />} />
-          <Route path='/checkout/*' element={<ProtectedRoutes></ProtectedRoutes> } />
+          <Route path='/checkout/*' element={<LoginRequiredRoutes /> } />
           {/* <Route path={urls.checkout} element={<Checkout />} /> */}
           <Route index path={urls.dashboard} element={<Dashboard />} />
           <Route path={urls.genre} element={<Genre />} />

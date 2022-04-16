@@ -32,7 +32,7 @@ const authSlice = createSlice({
     [authCreateUserThunk.fulfilled.type]: (state, {payload}) =>{
       state.userInfo.email = payload?.email
       state.userInfo.username = payload?.username
-      state.userInfo.fullname = payload?.fullname
+      state.isAuthenticated = true
       state.creatingUserState = HttpStatus.FULFILLED
     },
     /** REJECTED REQUESTS */

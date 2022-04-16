@@ -4,10 +4,12 @@ import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import urls from "../utils/routes/page.routes";
 import PersistentStorage from "../utils/persistent_storage/storage.persistent";
-import { Button } from "antd";
+import { Avatar, Button, Space } from "antd";
 import useLogout from "../utils/hooks/useLogout";
+import { useSelector } from "react-redux";
 const Header = () => {
-  const logout = useLogout()
+  const logout = useLogout();
+  const authState = useSelector((state) => state.auth);
   const [toggleNavbar, setToggleNavbar] = useState(false);
 
   const navClass = toggleNavbar ? "navbar-nav active" : "navbar-nav";
@@ -50,7 +52,16 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Button onClick={logout} to={urls.signup} className="btn btn-primary">
+                {authState.isAuthenticated && (
+                  <Space>
+                    <Avatar />
+                    <h5>{authState.userInfo?.username}</h5>
+                  </Space>
+                )}
+                <Button
+                  onClick={logout}
+                  to={urls.signup}
+                  className="btn btn-primary btn-sm">
                   Logout
                 </Button>
               </>

@@ -9,7 +9,7 @@ const authCreateUserThunk = createAsyncThunk(
   async ({user, navigate}, { fulfillWithValue, rejectWithValue }) => {
     return UserProfile.createUser(user?.username, user?.email)
     .then( snaphot => {
-      PersistentStorage.activateUser(user)
+      PersistentStorage.activateUser(user,  UserProfile.USER_ROLE)
       navigate(urls.homepage)
       return fulfillWithValue(user)
     })
