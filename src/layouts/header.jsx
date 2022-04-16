@@ -4,7 +4,10 @@ import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import urls from "../utils/routes/page.routes";
 import PersistentStorage from "../utils/persistent_storage/storage.persistent";
+import { Button } from "antd";
+import useLogout from "../utils/hooks/useLogout";
 const Header = () => {
+  const logout = useLogout()
   const [toggleNavbar, setToggleNavbar] = useState(false);
 
   const navClass = toggleNavbar ? "navbar-nav active" : "navbar-nav";
@@ -47,9 +50,9 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link to={urls.signup} className="btn btn-primary">
+                <Button onClick={logout} to={urls.signup} className="btn btn-primary">
                   Logout
-                </Link>
+                </Button>
               </>
             )}
           </li>

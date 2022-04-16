@@ -10,7 +10,7 @@ const authSignUpThunk = createAsyncThunk(
     .then( userCredential => {
       const user = {email: userCredential.user.email, username: formData.username}
       dispatch(authCreateUserThunk({user, navigate}))
-      
+      return fulfillWithValue()
     })
     .catch( error  => {
       if(error.code === 'auth/email-already-in-use'){

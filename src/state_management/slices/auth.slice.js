@@ -30,7 +30,7 @@ const authSlice = createSlice({
     [authCreateUserThunk.fulfilled.type]: (state, {payload}) =>{
       // state.userInfo.email = payload.email
       // state.userInfo.username = payload.username
-      state.fetchingState = HttpStatus.FULFILLED
+      // state.fetchingState = HttpStatus.FULFILLED
     },
     /** REJECTED REQUESTS */
     [authSignUpThunk.rejected.type]: (state, actions) => {
