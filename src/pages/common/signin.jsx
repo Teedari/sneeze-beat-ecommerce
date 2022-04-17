@@ -1,11 +1,16 @@
 import { Button, Form, Input } from "antd";
 import React from "react";
+import { useDispatch } from 'react-redux'
 import AccountLayoutComponent from "./components/account-layout";
 
 const SignIn = () => {
+  const dispatch = useDispatch()
+  const onFinish = values => {
+    
+  }
   return (
     <AccountLayoutComponent title='Sign In'>
-      <Form layout="vertical" className="form">
+      <Form onFinish={onFinish} layout="vertical" className="form">
         <Form.Item name='email' label="Email" rules={[{required: true}]}>
           <Input type="email" />
         </Form.Item>
@@ -13,7 +18,7 @@ const SignIn = () => {
           <Input.Password />
         </Form.Item>
         <div className="flex justify-end">
-          <Button htmlType="submit" className="btn btn-primary btn-sm">
+          <Button htmlType="submit" className="btn btn-primary btn-sm">Sign in
             <i className="bx bx-right-arrow-alt"></i>
           </Button>
         </div>

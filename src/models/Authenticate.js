@@ -11,6 +11,7 @@ class Auth {
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
+
   static logoutUser = async () => {
     try {
       const response = await signOut(auth)

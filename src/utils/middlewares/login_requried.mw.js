@@ -9,8 +9,8 @@ const LoginRequiredRoutes = ({children}) => {
   <Routes>
     <Route index element={<Checkout />} />
   </Routes>
-  :  <Navigate to={"/login?redirect=".concat(location.pathname)} state={{ from: "sdf" }} />
+  :  <Navigate to={"/login?redirect=".concat(location.pathname.slice(1))} state={{ from: "sdf" }} />
 }
 
 
-export default LoginRequiredRoutes
+export default  LoginRequiredRoutes

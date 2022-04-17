@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import authCreateUserThunk from "../thunks/auth/auth.create_user.thunk";
+import authSignInThunk from "../thunks/auth/auth.signin.thunk";
 import authSignUpThunk from "../thunks/auth/auth.signup.thunk";
 import { HttpStatus } from "../types";
 
@@ -32,7 +33,7 @@ const authSlice = createSlice({
     },
     /** FULFILLED REQUESTS */
     [authSignUpThunk.fulfilled.type]: (state, {payload}) => {
-      state.fetchingState = HttpStatus.REJECTED
+      state.fetchingState = HttpStatus.FULFILLED
     },
     [authCreateUserThunk.fulfilled.type]: (state, {payload}) =>{
       state.userInfo.email = payload?.email
@@ -40,8 +41,14 @@ const authSlice = createSlice({
       state.isAuthenticated = true
       state.creatingUserState = HttpStatus.FULFILLED
     },
+    [authSignInThunk.fulfilled.type]: (state, {payload}) => {
+      state.fetchingState = HttpStatus.REJECTED
+    },
     /** REJECTED REQUESTS */
     [authSignUpThunk.rejected.type]: (state, actions) => {
+      state.fetchingState = HttpStatus.REJECTED
+    },
+    [authSignInThunk.rejected.type]: (state, actions) => {
       state.fetchingState = HttpStatus.REJECTED
     },
     [authCreateUserThunk.rejected.type]: (state, actions) => {
