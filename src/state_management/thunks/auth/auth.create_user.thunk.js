@@ -7,7 +7,7 @@ import urls from "../../../utils/routes/page.routes";
 const authCreateUserThunk = createAsyncThunk(
   "auth/create/user",
   async ({user, navigate}, { fulfillWithValue, rejectWithValue }) => {
-    return UserProfile.createUser(user?.username, user?.email)
+    return UserProfile.createUser(user.uid, user?.username, user?.email)
     .then( snaphot => {
       PersistentStorage.activateUser(user,  UserProfile.USER_ROLE)
       navigate(urls.homepage)

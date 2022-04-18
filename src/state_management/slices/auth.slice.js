@@ -52,7 +52,7 @@ const authSlice = createSlice({
       state.fetchingState = HttpStatus.REJECTED
     },
     [authCreateUserThunk.rejected.type]: (state, actions) => {
-      state.fetchingState = HttpStatus.REJECTED
+      state.creatingUserState = HttpStatus.REJECTED
     },
   }
 })
