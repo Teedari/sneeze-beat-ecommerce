@@ -12,7 +12,7 @@ class PersistentStorage {
   static __generateKey = key => `${PersistentStorage._PREFIX}__${key}`;
 
   static __setStorageData = (key, value) => {
-    localStorage.setItem(PersistentStorage.__generateKey(key), value)
+    localStorage.setItem(PersistentStorage.__generateKey(key), JSON.stringify(value))
   }
 
   static __getStorageData = key => {

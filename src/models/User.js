@@ -1,5 +1,6 @@
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../configs/firebase.config";
+import PersistentStorage from "../utils/persistent_storage/storage.persistent";
 
 class UserProfile {
   static _prefix = 'sneeze-beat'
@@ -24,6 +25,18 @@ class UserProfile {
       photo: ""
     })
   }
+  static getUser = uid => {
+    return getDoc(UserProfile._docRef(uid))
+  }
+  static convert = snaphots => {
+    const data = []
+    snaphots.forEach( snapshot => {
+      data.push({...snapshot.data()})
+    })
+    return data
+  }
+  static isAdmin = () => PersistentStorage.getUserRole() === UserProfile.ADMIN_ROLE
+  static isUser = user_role => user_role === UserProfile.USER_ROLE
 }
 
 
