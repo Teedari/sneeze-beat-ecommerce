@@ -20,20 +20,10 @@ import BeatUpdate from "./pages/admin/Beat/update.beat";
 import License from "./pages/admin/License";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Page404 from "./pages/common/components/Page404";
-import PersistentStorage from "./utils/persistent_storage/storage.persistent";
 import LoginRequiredRoutes from "./utils/middlewares/login_requried.mw";
-// const LoginRequiredRoute = ({ children }) => {
-//   // const location = useLocation()
-//   const flag = PersistentStorage.getUserHasLoggedIn();
-//   if (!flag) {
-//     return <Navigate to="/login?redirect=checkout" state={{ from: "sdf" }} replace />;
-//   }
-//   return (
-//     <Routes>
-//       <Route index element={<Checkout />} />
-//     </Routes>
-//   );
-// };
+import AdminOnlyRoutes from "./utils/middlewares/admin_only.mw";
+import UserProfile from "./models/User";
+
 function App() {
   return (
     <BrowserRouter>
@@ -48,8 +38,9 @@ function App() {
           <Route path={urls.beat_detail} element={<BeatDetail />} />
           <Route path='/checkout/*' element={<LoginRequiredRoutes /> } />
           {/* <Route path={urls.checkout} element={<Checkout />} /> */}
-          <Route index path={urls.dashboard} element={<Dashboard />} />
-          <Route path={urls.genre} element={<Genre />} />
+          <Route index path={'/dashboard/*'} element={<AdminOnlyRoutes allowered_users={[UserProfile.ADMIN_ROLE, UserProfile.USER_ROLE]} />} />
+          {/* <Route index path={urls.dashboard} element={<Dashboard />} /> */}
+          {/* <Route path={urls.genre} element={<Genre />} /> */}
           <Route path={urls.dashboard_beat_create} element={<Beat />} />
           <Route path={urls.dashboard_beat_list} element={<ListBeats />} />
           <Route path={urls.dashboard_beat_update} element={<BeatUpdate />} />
