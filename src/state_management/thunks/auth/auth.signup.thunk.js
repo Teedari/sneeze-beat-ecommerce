@@ -5,12 +5,11 @@ import authCreateUserThunk from "./auth.create_user.thunk";
 
 const authSignUpThunk = createAsyncThunk(
   "auth/signup",
-  async ({formData, navigate}, { dispatch, fulfillWithValue, rejectWithValue }) => {
+  async ({formData, navigate, type='user'}, { dispatch, fulfillWithValue, rejectWithValue }) => {
     return Auth.signUpWithEmailAndPassword(formData.email, formData.password)
     .then( userCredential => {
-      console.log(userCredential.user)
       const user = {uid: userCredential.user.uid,email: userCredential.user.email, username: formData.username}
-      dispatch(authCreateUserThunk({user, navigate}))
+      dispatch(authCreateUserThunk({user, navigate, type}))
       return fulfillWithValue()
     })
     .catch( error  => {
