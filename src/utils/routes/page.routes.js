@@ -31,6 +31,24 @@ export const admin_urls = {
   
   'dashboard_settings':  `${BASE_DASHBOARD_URL}/settings`,
 }
+// export const admin_urls = {
+//   'dashboard': BASE_DASHBOARD_URL,
+//   'genre': `${BASE_DASHBOARD_URL}/genre`,
+//   'genre_list': `${BASE_DASHBOARD_URL}/genre/list`,
+
+//   'dashboard_beat_create':  `${BASE_DASHBOARD_URL}/beat/create`,
+//   'dashboard_beat_list':  `${BASE_DASHBOARD_URL}/beat/list`,
+//   'dashboard_beat_update':  `${BASE_DASHBOARD_URL}/beat/update/:ID`,
+
+//   'dashboard_messages':  `${BASE_DASHBOARD_URL}/messages`,
+
+//   'dashboard_license':  `${BASE_DASHBOARD_URL}/license`,
+//   'dashboard_license_create':  `${BASE_DASHBOARD_URL}/license/create`,
+
+//   'dashboard_users':  `${BASE_DASHBOARD_URL}/users`,
+  
+//   'dashboard_settings':  `${BASE_DASHBOARD_URL}/settings`,
+// }
 const urls = {
  ...user_urls, ...admin_urls
 }
