@@ -18,7 +18,7 @@ export const admin_urls = {
   'genre': `${BASE_DASHBOARD_URL}/genre`,
   'genre_list': `${BASE_DASHBOARD_URL}/genre/list`,
 
-  'dashboard_beat_create':  `${BASE_DASHBOARD_URL}/beat/create`,
+  'dashboard_beat_create':  `${BASE_DASHBOARD_URL}/beat`,
   'dashboard_beat_list':  `${BASE_DASHBOARD_URL}/beat/list`,
   'dashboard_beat_update':  `${BASE_DASHBOARD_URL}/beat/update/:ID`,
 

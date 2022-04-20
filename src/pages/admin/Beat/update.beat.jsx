@@ -18,7 +18,7 @@ const BeatUpdate = () => {
   }, [beatState, params.ID])
 
   const fillForm = useCallback(() => {
-    form.setFieldsValue({...selectedBeat[0], general_price:selectedBeat[0].general.price, exclusive_price: selectedBeat[0].exclusive.price})
+    form.setFieldsValue({...selectedBeat[0], general_price:selectedBeat[0]?.general?.price, exclusive_price: selectedBeat[0]?.exclusive?.price})
   }, [form, selectedBeat])
 
   const onFinish = values => {

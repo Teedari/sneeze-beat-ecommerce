@@ -13,8 +13,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import urls from "../../../utils/routes/page.routes";
 import CustomLink from "../../../components/CustomLink";
+import useLogout from "../../../utils/hooks/useLogout";
 
 const SidebarMenus = () => {
+  const logout = useLogout()
   return (
     <Menu
       id="menu"
@@ -61,7 +63,7 @@ const SidebarMenus = () => {
       <Menu.Item key="7" icon={<FontAwesomeIcon icon={faGears} />}>
         <CustomLink to={urls.dashboard_settings}>Settings</CustomLink>
       </Menu.Item>
-      <Menu.Item key="8" icon={<FontAwesomeIcon icon={faSignOut} />}>
+      <Menu.Item key="8" onClick={logout} icon={<FontAwesomeIcon icon={faSignOut} />}>
         Logout
       </Menu.Item>
     </Menu>

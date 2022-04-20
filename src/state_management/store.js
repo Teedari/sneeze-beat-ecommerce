@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import uiSlice from './slices/ui.slice'
-import deezerSlice from './slices/deezer.slice'
 import storage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from 'redux-persist'
 import cartSlice from './slices/cart.slice'
@@ -8,15 +7,16 @@ import genreSlice from './slices/genre.slice'
 import beatSlice from './slices/beat.slice'
 import messageSlice from './slices/message.slice'
 import licenseSlice from './slices/license.slice'
+import authSlice from './slices/auth.slice'
 
 const rootReducer = combineReducers({
   ui: uiSlice,
-  deezer: deezerSlice,
   cart: cartSlice,
   genre: genreSlice,
   beat: beatSlice,
   message: messageSlice,
-  license: licenseSlice
+  license: licenseSlice,
+  auth: authSlice,
 })
 
 

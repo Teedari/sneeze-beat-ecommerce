@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from "react";
-import { Select, Form, Input, Button, Radio } from "antd";
+import { Select, Form, Input, Button, Radio, Row, Col } from "antd";
 import FormWrapper from "../../../../components/FormWrapper";
 import random from "random-number";
 import { useSelector } from "react-redux";
 import { HttpStatus } from "../../../../state_management/types";
+import genreData from "../../../../data/genre.json";
 
 const arr = ["GAD2112", "GAD1344", "HGA1239"];
 const BeatBasicForm = ({ ...props }) => {
@@ -80,18 +81,33 @@ const BeatBasicForm = ({ ...props }) => {
           </Radio.Group>
         </Form.Item>
       )}
-      <Form.Item
-        name="genre"
-        label="Genre"
-        rules={[{ required: true, message: "Genre field is required" }]}>
-        <Select defaultValue="">
-          <Select.Option disabled>Select genre type</Select.Option>
-          <Select.Option value="hip pop">Hip pop</Select.Option>
-          <Select.Option value="drill">Drill</Select.Option>
-          <Select.Option value="dancehall">Dance Hall</Select.Option>
-          <Select.Option value="raggae">Raggae</Select.Option>
-        </Select>
-      </Form.Item>
+      <Row gutter={[14]}>
+        <Col md={12}>
+          <Form.Item
+            name="genre"
+            label="Genre"
+            rules={[{ required: true, message: "Genre field is required" }]}>
+            <Select defaultValue="">
+              <Select.Option disabled>Select genre type</Select.Option>
+              {genreData.map((genre) => (
+                <Select.Option value={genre.label.toLowerCase()}>{genre?.label}</Select.Option>
+              ))}
+            </Select>
+          </Form.Item>
+        </Col>
+        <Col md={12}>
+          <Form.Item
+            name="category"
+            label="Category"
+            rules={[{ required: true, message: "Category field is required" }]}>
+            <Select defaultValue="">
+              <Select.Option disabled>Select Category</Select.Option>
+              <Select.Option value="recommended">Recommended</Select.Option>
+              <Select.Option value="trending">Trending</Select.Option>
+            </Select>
+          </Form.Item>
+        </Col>
+      </Row>
       <Form.Item
         name="bpm"
         label="Beat Per Minute(bpm)"
@@ -99,25 +115,32 @@ const BeatBasicForm = ({ ...props }) => {
         rules={[{ required: true, message: "BPM field is required" }]}>
         <Input type="number" />
       </Form.Item>
-      <div className="flex md:gap-2 md:flex-row flex-col ">
-        <Form.Item
-          name="general_price"
-          label="MP3 (Price)"
-          className="flex-1"
-          rules={[{ required: true, message: "Price field is required" }]}>
-          <Input type="number" />
-        </Form.Item>
-        <Form.Item
-          name="exclusive_price"
-          label="Exclusive (Price)"
-          className="flex-1"
-          rules={[{ required: true, message: "Price field is required" }]}>
-          <Input type="number" />
-        </Form.Item>
-      </div>
+      <Row gutter={[14]}>
+        <Col sm={24} md={12}>
+          <Form.Item
+            name="general_price"
+            label="MP3 (Price)"
+            className="flex-1"
+            rules={[{ required: true, message: "Price field is required" }]}>
+            <Input type="number" />
+          </Form.Item>
+        </Col>
+        <Col sm={24} md={12}>
+          <Form.Item
+            name="exclusive_price"
+            label="Exclusive (Price)"
+            className="flex-1"
+            rules={[{ required: true, message: "Price field is required" }]}>
+            <Input type="number" />
+          </Form.Item>
+        </Col>
+      </Row>
       <div className="flex justify-end">
         {props.createForm && (
-          <Button htmlType="submit" className="btn btn-primary" loading={beatState.sendingState === HttpStatus.PENDING}>
+          <Button
+            htmlType="submit"
+            className="btn btn-primary"
+            loading={beatState.sendingState === HttpStatus.PENDING}>
             Continue
           </Button>
         )}

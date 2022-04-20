@@ -38,12 +38,12 @@ const Checkout = () => {
               renderItem={(item) => (
                 <div className="mb-4">
                   <Tile
-                    img={item?.album?.cover}
-                    middleText={item.title}
-                    middleBottomText={"mp3"}
-                    endText={"$122"}>
+                    img={item?.assets?.cover}
+                    middleText={item?.name}
+                    middleBottomText={item.label}
+                    endText={"$".concat(item.price)}>
                     <div className="h-full flex items-center">
-                      <button onClick={() => playMusicHandler(item?.preview, item?.title, item?.album?.cover)} className="bg-primary h-full w-1/2 text-white">
+                      <button onClick={() => playMusicHandler(item?.assets?.beat, item?.name, item?.assets?.cover)} className="bg-primary h-full w-1/2 text-white">
                         Play <FontAwesomeIcon size="md" icon={faPlay} />
                       </button>
                       <button onClick={() => dispatch(removeItemFromCart({id: item.id}))} className="bg-red-800 h-full w-1/2 text-white ">
