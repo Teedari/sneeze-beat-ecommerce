@@ -8,7 +8,6 @@ const authSignInThunk = createAsyncThunk(
   async ({formData, navigate}, {dispatch, fulfillWithValue, rejectWithValue}) => {
     return Auth.signInWithEmail(formData?.email, formData?.password)
     .then( res => {
-      console.log(res.user.uid)
       dispatch(authFetchUserThunk({uid:res.user.uid, navigate}))
       return fulfillWithValue()
     })

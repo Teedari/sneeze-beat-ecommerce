@@ -9,8 +9,13 @@ const authFetchUserThunk = createAsyncThunk(
   async ({uid, navigate}, { fulfillWithValue, rejectWithValue }) => {
     return UserProfile.getUser(uid)
     .then( snaphots => {
-      PersistentStorage.activateUser({username: snaphots.data().username},  UserProfile.USER_ROLE)
-      navigate(urls.homepage)
+      PersistentStorage.activateUser({username: snaphots.data().username},  snaphots.data()?.userRole)
+      if(snaphots.data()?.userRole === UserProfile.ADMIN_ROLE){
+        navigate(urls.dashboard)
+      }else{
+        navigate(urls.homepage)
+      }
+      
       return fulfillWithValue(snaphots.data())
     })
     .catch( error  => {

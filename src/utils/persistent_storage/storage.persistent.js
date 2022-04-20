@@ -1,5 +1,3 @@
-import UserProfile from "../../models/User"
-
 class PersistentStorage {
   static _PREFIX = 'sneeze-beat'
   static _IS_AUTHENTICATED = 'isAuthenticated'

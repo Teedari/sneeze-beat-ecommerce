@@ -9,7 +9,6 @@ import Messages from "../../pages/admin/Messages"
 import Settings from "../../pages/admin/settings"
 import Users from "../../pages/admin/Users"
 import PersistentStorage from "../persistent_storage/storage.persistent"
-import urls from "../routes/page.routes"
 
 
 const AdminOnlyRoutes = ({allowered_users=[]}) => {

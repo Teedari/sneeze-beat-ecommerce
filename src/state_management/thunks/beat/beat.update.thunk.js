@@ -11,6 +11,7 @@ const beatUpdateThunk = createAsyncThunk(
   async (data, {fulfillWithValue, rejectWithValue}) => {
     try{
       const snapshot = await Beat.update(data.key, data.name, data.genre, data.bpm, data?.category, data.general_price, data.exclusive_price)
+      
       message.success(`Beat #${data.key} has been updated successfully`)
       // console.log(data, snapshot)
       return fulfillWithValue(data)

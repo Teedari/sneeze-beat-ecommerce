@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom"
+import { Navigate, Route, Routes, useLocation } from "react-router-dom"
 import Checkout from "../../pages/user/Checkout"
 import PersistentStorage from "../persistent_storage/storage.persistent"
 

@@ -13,13 +13,14 @@ class UserProfile {
     return setDoc(UserProfile._docRef(uid), {
       username,
       email,
-      userRole: type=== 'user' ? UserProfile.USER_ROLE : type === 'admin' ? UserProfile.ADMIN_ROLE : '',
+      userRole: type === 'user' ? UserProfile.USER_ROLE : type === 'admin' ? UserProfile.ADMIN_ROLE : '',
       photo: ""
     })
   }
   static getUser = uid => {
     return getDoc(UserProfile._docRef(uid))
   }
+  
   static convert = snaphots => {
     const data = []
     snaphots.forEach( snapshot => {
