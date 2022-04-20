@@ -39,15 +39,6 @@ function App() {
           <Route path='/checkout/*' element={<LoginRequiredRoutes /> } />
           {/* <Route path={urls.checkout} element={<Checkout />} /> */}
           <Route index path={'/dashboard/*'} element={<AdminOnlyRoutes allowered_users={[UserProfile.ADMIN_ROLE, UserProfile.USER_ROLE]} />} />
-          {/* <Route index path={urls.dashboard} element={<Dashboard />} /> */}
-          {/* <Route path={urls.genre} element={<Genre />} /> */}
-          <Route path={urls.dashboard_beat_create} element={<Beat />} />
-          <Route path={urls.dashboard_beat_list} element={<ListBeats />} />
-          <Route path={urls.dashboard_beat_update} element={<BeatUpdate />} />
-          <Route path={urls.dashboard_messages} element={<Messages />} />
-          <Route path={urls.dashboard_users} element={<Users />} />
-          <Route path={urls.dashboard_license} element={<License />} />
-          <Route path={urls.dashboard_settings} element={<Settings />} />
         </Route>
       </Routes>
     </BrowserRouter>

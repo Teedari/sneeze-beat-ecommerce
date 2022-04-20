@@ -1,6 +1,13 @@
 import { Navigate, Route, Routes, useLocation } from "react-router-dom"
 import Dashboard from "../../pages/admin"
+import Beat from "../../pages/admin/Beat"
+import ListBeats from "../../pages/admin/Beat/list.beat"
+import BeatUpdate from "../../pages/admin/Beat/update.beat"
 import Genre from "../../pages/admin/Genre"
+import License from "../../pages/admin/License"
+import Messages from "../../pages/admin/Messages"
+import Settings from "../../pages/admin/settings"
+import Users from "../../pages/admin/Users"
 import PersistentStorage from "../persistent_storage/storage.persistent"
 import urls from "../routes/page.routes"
 
@@ -15,6 +22,15 @@ const AdminOnlyRoutes = ({allowered_users=[]}) => {
     return <Routes>
       <Route index element={<Dashboard />} />
       <Route path={'genre'} element={<Genre />} />
+      <Route path={'beat'}>
+        <Route index element={<Beat />} />
+        <Route path={'list'} element={<ListBeats />} />
+        <Route path={'update/:ID'} element={<BeatUpdate />} />
+      </Route>
+      <Route path={'messages'} element={<Messages />} />
+      <Route path={'users'} element={<Users />} />
+      <Route path={'license'} element={<License />} />
+      <Route path={'settings'} element={<Settings />} />
     </Routes>
   }
 
