@@ -8,6 +8,7 @@ import License from "../../pages/admin/License"
 import Messages from "../../pages/admin/Messages"
 import Settings from "../../pages/admin/settings"
 import Users from "../../pages/admin/Users"
+import UserAdminCreate from "../../pages/admin/Users/index.create_admin"
 import PersistentStorage from "../persistent_storage/storage.persistent"
 
 
@@ -27,7 +28,10 @@ const AdminOnlyRoutes = ({allowered_users=[]}) => {
         <Route path={'update/:ID'} element={<BeatUpdate />} />
       </Route>
       <Route path={'messages'} element={<Messages />} />
-      <Route path={'users'} element={<Users />} />
+      <Route path={'user'} >
+        <Route index element={<Users />} />
+        <Route path={'create/admin'} element={<UserAdminCreate />} />
+      </Route>
       <Route path={'license'} element={<License />} />
       <Route path={'settings'} element={<Settings />} />
     </Routes>

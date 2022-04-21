@@ -54,9 +54,10 @@ const SidebarMenus = () => {
         icon={<FontAwesomeIcon icon={faMessage} />}>
         <CustomLink to={urls.dashboard_messages}>Messages</CustomLink>
       </Menu.Item>
-      <Menu.Item key="5" icon={<FontAwesomeIcon icon={faUser} />}>
-        <CustomLink to={urls.dashboard_users}>Users</CustomLink>
-      </Menu.Item>
+      <Menu.SubMenu title='User' key="5" icon={<FontAwesomeIcon icon={faUser} />}>
+        <Menu.Item key='5.1'><CustomLink to={urls.dashboard_user}>List</CustomLink></Menu.Item>
+        <Menu.Item key='5.2'><CustomLink to={urls.dashboard_user_create_admin}>Create Admin</CustomLink></Menu.Item>
+      </Menu.SubMenu>
       <Menu.Item key="6" icon={<FontAwesomeIcon icon={faBook} />}>
         <CustomLink to={urls.dashboard_license}>License</CustomLink>
       </Menu.Item>

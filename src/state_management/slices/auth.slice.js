@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import authCreateUserThunk from "../thunks/auth/auth.create_user.thunk";
 import authFetchUserThunk from "../thunks/auth/auth.fetch_user.thunk";
+import authFetchUsersThunk from "../thunks/auth/auth.fetch_users.thunk";
 import authSignInThunk from "../thunks/auth/auth.signin.thunk";
 import authSignUpThunk from "../thunks/auth/auth.signup.thunk";
 import { HttpStatus } from "../types";
@@ -11,6 +12,10 @@ const initialState = {
     email: "",
     username: "",
     user_role: ""
+  },
+  users: {
+    count: 0,
+    list: []
   },
   isAuthenticated: false,
   fetchingState: HttpStatus.IDLE,
@@ -38,6 +43,9 @@ const authSlice = createSlice({
     [authFetchUserThunk.pending.type]: (state, actions) =>{
       state.fetchingState = HttpStatus.PENDING
     },
+    [authFetchUsersThunk.pending.type]: (state, actions) =>{
+      state.fetchingState = HttpStatus.PENDING
+    },
     /** FULFILLED REQUESTS */
     [authSignUpThunk.fulfilled.type]: (state, {payload}) => {
       state.fetchingState = HttpStatus.FULFILLED
@@ -58,6 +66,11 @@ const authSlice = createSlice({
       state.isAuthenticated = true
       state.fetchingState = HttpStatus.FULFILLED
     },
+    [authFetchUsersThunk.fulfilled.type]: (state, {payload}) => {
+      state.users.list  = payload
+      state.users.count = payload.length
+      state.fetchingState = HttpStatus.FULFILLED
+    },
     /** REJECTED REQUESTS */
     [authSignUpThunk.rejected.type]: (state, actions) => {
       state.fetchingState = HttpStatus.REJECTED
@@ -68,7 +81,7 @@ const authSlice = createSlice({
     [authCreateUserThunk.rejected.type]: (state, actions) => {
       state.creatingUserState = HttpStatus.REJECTED
     },
-    [authFetchUserThunk.rejected.type]: (state, actions) => {
+    [authFetchUsersThunk.rejected.type]: (state, actions) => {
       state.fetchingState = HttpStatus.REJECTED
     },
   }

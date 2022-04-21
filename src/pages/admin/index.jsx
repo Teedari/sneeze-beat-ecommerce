@@ -13,6 +13,7 @@ import genreListAllThunk from "../../state_management/thunks/genre/genre.list.th
 import { message } from "antd";
 import beatFetchThunk from "../../state_management/thunks/beat/beat.fetch.thunk";
 import messageFetchThunk from "../../state_management/thunks/message/message.fetch.thunk";
+import authFetchUsersThunk from "../../state_management/thunks/auth/auth.fetch_users.thunk";
 const Dashboard = () => {
   const dataSource = [
     {
@@ -50,11 +51,13 @@ const Dashboard = () => {
   const beatCount = useSelector( state => state.beat?.count)
   const genreCount = useSelector( state => state.genre?.count)
   const messageCount = useSelector( state => state.message?.count)
+  const usersCount = useSelector( state => state.auth?.users?.count)
 
   useEffect(() => {
     dispatch(beatFetchThunk())
     dispatch(genreListAllThunk())
     dispatch(messageFetchThunk())
+    dispatch(authFetchUsersThunk())
   }, [dispatch]);
 
   return (
@@ -66,7 +69,7 @@ const Dashboard = () => {
           </h2>
         </div>
         <section className="grid md:grid-cols-4 gap-4">
-          <DashboardCard title="Users" value="899" icon={faUsers} />
+          <DashboardCard title="Users" value={usersCount} icon={faUsers} />
           <DashboardCard title="Beats" value={beatCount} icon={faHeadphones} />
           <DashboardCard title="Message" value={messageCount} icon={faMessage} />
           <DashboardCard title="Genre" value={genreCount} icon={faMusic} />

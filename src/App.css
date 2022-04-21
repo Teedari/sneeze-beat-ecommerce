@@ -228,7 +228,7 @@
   }
   .btn-primary {
     @apply bg-primary border-primary hover:bg-primary hover:border-primary hover:text-slate-900;
-    color: theme('colors.slate.900') !important
+    color: theme('colors.slate.900') !important;
   }
   .btn-secondary {
     background: theme("backgroundColor.cyan.500") !important;

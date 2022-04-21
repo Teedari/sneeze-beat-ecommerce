@@ -27,7 +27,8 @@ export const admin_urls = {
   'dashboard_license':  `${BASE_DASHBOARD_URL}/license`,
   'dashboard_license_create':  `${BASE_DASHBOARD_URL}/license/create`,
 
-  'dashboard_users':  `${BASE_DASHBOARD_URL}/users`,
+  'dashboard_user':  `${BASE_DASHBOARD_URL}/user`,
+  'dashboard_user_create_admin':  `${BASE_DASHBOARD_URL}/user/create/admin`,
   
   'dashboard_settings':  `${BASE_DASHBOARD_URL}/settings`,
 }
