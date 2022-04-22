@@ -54,7 +54,7 @@ const Dashboard = () => {
   const usersCount = useSelector( state => state.auth?.users?.count)
 
   useEffect(() => {
-    // dispatch(beatFetchThunk())
+    dispatch(beatFetchThunk())
     // dispatch(genreListAllThunk())
     // dispatch(messageFetchThunk())
     dispatch(authFetchUsersThunk())
