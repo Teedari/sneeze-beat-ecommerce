@@ -11,7 +11,12 @@ const authFetchUsersThunk = createAsyncThunk(
       return fulfillWithValue(UserProfile.convert(snaphots))
     })
     .catch( error  => {
-      message.error('Something went wrong. Please try again.')
+      if(error.code === 'permission-denied'){
+        message.error('Something went wrong '.concat(error.message))
+      }else{
+
+        message.error('Something went wrong. Please try again.')
+      }
       return rejectWithValue(error)
     })
   }

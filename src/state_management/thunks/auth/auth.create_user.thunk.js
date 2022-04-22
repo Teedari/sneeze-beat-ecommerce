@@ -6,12 +6,11 @@ import urls from "../../../utils/routes/page.routes";
 
 const authCreateUserThunk = createAsyncThunk(
   "auth/create/user",
-  async ({user, navigate, type}, { fulfillWithValue, rejectWithValue }) => {
-    return UserProfile.createUser(user.uid, user?.username, user?.email, type)
+  async ({user, navigate, role}, { fulfillWithValue, rejectWithValue }) => {
+    return UserProfile.createUser(user.uid, user?.username, user?.email, role)
     .then( snaphot => {
-      const user_role = type === 'admin' ? UserProfile.ADMIN_ROLE : UserProfile.USER_ROLE
-      PersistentStorage.activateUser(user,  user_role)
-      if(user_role === UserProfile.ADMIN_ROLE){
+      PersistentStorage.activateUser(user,  role)
+      if(role === UserProfile.ADMIN_ROLE){
         navigate(urls.dashboard)
       }else{
         navigate(urls.homepage)

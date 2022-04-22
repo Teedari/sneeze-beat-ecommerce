@@ -1,11 +1,14 @@
+import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { faTrash, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Input, Row, Tabs } from "antd";
 import React from "react";
+import { useSelector } from "react-redux";
 import CardWrapper from "../../../components/CardWrapper";
 import CustomLayout from "../../../layouts";
 
 const Settings = () => {
+  const authState = useSelector((state) => state.auth.userInfo);
   return (
     <CustomLayout admin>
       <div className="heading">
@@ -18,10 +21,16 @@ const Settings = () => {
               <div className="flex items-center gap-4">
                 <div className="w-20 h-20 rounded-full bg-slate-600">
                   <div className="image-container rounded-full">
-                    <img
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                      alt=""
-                    />
+                    {authState?.photoUrl ? (
+                      <img
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                        alt=""
+                      />
+                    ) : (
+                      <div className='w-full h-full center text-2xl animate-pulse'>
+                        <FontAwesomeIcon icon={faImage} />
+                      </div>
+                    )}
                   </div>
                 </div>
                 <Button className="border-0 bg-slate-900 text-primary h-12 w-12 rounded-full font-semibold hover:bg-transparent">
@@ -33,35 +42,24 @@ const Settings = () => {
               </div>
               <hr className="border-slate-900 my-4" />
               <Form className="form" layout="vertical">
-                <Row gutter={[14]}>
-                  <Col sm={24} md={12}>
-                    <Form.Item label="Display name">
-                      <Input disabled />
-                    </Form.Item>
-                  </Col>
-                  <Col sm={24} md={12}>
-                    <Form.Item label="Full name">
-                      <Input />
-                    </Form.Item>
-                  </Col>
-                </Row>
-                <hr className="border-slate-900 mb-4" />
+                <Form.Item label="Display name">
+                  <Input value={authState?.username} disabled />
+                </Form.Item>
+
                 <Row gutter={[14]}>
                   <Col sm={24} md={12}>
                     <Form.Item label="Email address">
-                      <Input />
+                      <Input value={authState?.email} />
                     </Form.Item>
                   </Col>
                   <Col sm={24} md={12}>
                     <Form.Item label="Phone number">
-                      <Input />
+                      <Input value={authState?.phone} />
                     </Form.Item>
                   </Col>
                 </Row>
                 <div className="flex justify-end">
-                  <Button className="btn btn-accent">
-                    Save changes
-                  </Button>
+                  <Button className="btn btn-accent">Save changes</Button>
                 </div>
               </Form>
             </CardWrapper>
@@ -83,11 +81,12 @@ const Settings = () => {
                 <Form.Item label="Confirm new password">
                   <Input.Password />
                 </Form.Item>
-                <small className="text-slate-400 mb-4 inline-block">Make sure it's at least 15 characters OR at least 8 characters including a number and a lowercase letter.</small>
+                <small className="text-slate-400 mb-4 inline-block">
+                  Make sure it's at least 15 characters OR at least 8 characters
+                  including a number and a lowercase letter.
+                </small>
                 <div className="flex justify-end">
-                  <Button className="btn btn-accent">
-                    Save changes
-                  </Button>
+                  <Button className="btn btn-accent">Save changes</Button>
                 </div>
               </Form>
             </CardWrapper>

@@ -1,15 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { message } from "antd";
 import Auth from "../../../models/Authenticate";
+import UserProfile from "../../../models/User";
 import authCreateUserThunk from "./auth.create_user.thunk";
 
 const authSignUpThunk = createAsyncThunk(
   "auth/signup",
-  async ({formData, navigate, type='user'}, { dispatch, fulfillWithValue, rejectWithValue }) => {
+  async ({formData, navigate, role=UserProfile.USER_ROLE}, { dispatch, fulfillWithValue, rejectWithValue }) => {
     return Auth.signUpWithEmailAndPassword(formData.email, formData.password)
     .then( userCredential => {
       const user = {uid: userCredential.user.uid,email: userCredential.user.email, username: formData.username}
-      dispatch(authCreateUserThunk({user, navigate, type}))
+      dispatch(authCreateUserThunk({user, navigate, role}))
       return fulfillWithValue()
     })
     .catch( error  => {

@@ -14,7 +14,13 @@ const beatFetchThunk = createAsyncThunk(
       return fulfillWithValue(Beat.convert(snapshots))
     } 
     catch(error){
-      message.error('Error Occured, Beats was not fetched')
+      if(error.code === 'permission-denied'){
+
+        message.error('Error Occured, '.concat(error.message))
+      }else{
+
+        message.error('Error Occured, Beats was not fetched')
+      }
       return rejectWithValue(error)
     }   
   }

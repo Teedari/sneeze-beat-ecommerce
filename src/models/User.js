@@ -9,11 +9,11 @@ class UserProfile {
   static _collectionRef = collection(db, 'tb_user_profile')
   static _docRef = uid => doc(db, 'tb_user_profile', uid)
   
-  static createUser = (uid, username, email, type) => {
+  static createUser = (uid, username, email, role) => {
     return setDoc(UserProfile._docRef(uid), {
       username,
       email,
-      userRole: type === 'user' ? UserProfile.USER_ROLE : type === 'admin' ? UserProfile.ADMIN_ROLE : '',
+      userRole: role,
       photo: ""
     })
   }
