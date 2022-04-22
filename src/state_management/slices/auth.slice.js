@@ -11,7 +11,8 @@ const initialState = {
   userInfo: {
     email: "",
     username: "",
-    user_role: ""
+    user_role: "",
+    isEmailVerified: false
   },
   users: {
     count: 0,
@@ -27,6 +28,9 @@ const authSlice = createSlice({
   reducers: {
     deactivateUser: (state, actions) => {
       state.isAuthenticated = false
+    },
+    setEmailVerification: (state, {payload}) => {
+      state.userInfo.isEmailVerified = payload
     }
   },
   extraReducers: {
@@ -63,6 +67,7 @@ const authSlice = createSlice({
     [authFetchUserThunk.fulfilled.type]: (state, {payload}) => {
       state.userInfo.email = payload?.email
       state.userInfo.username = payload?.username
+      state.emailVerified = payload?.emailVerified
       state.isAuthenticated = true
       state.fetchingState = HttpStatus.FULFILLED
     },
@@ -87,5 +92,5 @@ const authSlice = createSlice({
   }
 })
 
-export const { deactivateUser } = authSlice.actions 
+export const { deactivateUser, setEmailVerification } = authSlice.actions 
 export default authSlice.reducer

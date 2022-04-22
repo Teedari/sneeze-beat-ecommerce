@@ -1,14 +1,40 @@
+import { async } from "@firebase/util";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { faTrash, faUpload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Col, Form, Input, Row, Tabs } from "antd";
-import React from "react";
+import { Button, Col, Form, Input, message, Row, Tabs } from "antd";
+import { sendEmailVerification } from "firebase/auth";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CardWrapper from "../../../components/CardWrapper";
+import { actionCodeSettings, auth } from "../../../configs/firebase.config";
 import CustomLayout from "../../../layouts";
 
 const Settings = () => {
+  const [loading, setLoading] = useState(false);
   const authState = useSelector((state) => state.auth.userInfo);
+  const sendEmailVerificationLink = async () => {
+    setLoading(true);
+    sendEmailVerification(
+      auth.currentUser,
+      actionCodeSettings(authState?.email)
+    )
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+        message.success("Email sent to ".concat(authState?.email));
+      })
+      .catch((err) => {
+        message.error("Error occured. ".concat(err.message));
+        console.log(err);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    console.log(auth.currentUser?.emailVerified);
+  }, []);
+
   return (
     <CustomLayout admin>
       <div className="heading">
@@ -27,7 +53,7 @@ const Settings = () => {
                         alt=""
                       />
                     ) : (
-                      <div className='w-full h-full center text-2xl animate-pulse'>
+                      <div className="w-full h-full center text-2xl animate-pulse">
                         <FontAwesomeIcon icon={faImage} />
                       </div>
                     )}
@@ -86,12 +112,44 @@ const Settings = () => {
                   including a number and a lowercase letter.
                 </small>
                 <div className="flex justify-end">
-                  <Button className="btn btn-accent">Save changes</Button>
+                  <Button htmlType="submit" className="btn btn-accent">
+                    Save changes
+                  </Button>
                 </div>
               </Form>
             </CardWrapper>
           </div>
         </Tabs.TabPane>
+        {!authState.isEmailVerified && (
+          <Tabs.TabPane tab="Activation" key="3">
+            <div className="lg:w-1/2 pb-4">
+              <CardWrapper>
+                <h4>Account Activation</h4>
+                <hr className="border-slate-800 my-4" />
+                <Form
+                  onFinish={(values) => sendEmailVerificationLink()}
+                  className="form"
+                  layout="vertical">
+                  <Form.Item label="User email">
+                    <Input disabled type="email" value={authState?.email} />
+                  </Form.Item>
+                  <small className="text-slate-400 mb-4 inline-block">
+                    Make sure it's your email thats is been displayed inside the
+                    box.
+                  </small>
+                  <div className="flex justify-end">
+                    <Button
+                      loading={loading}
+                      htmlType="submit"
+                      className="btn btn-accent">
+                      Activate account
+                    </Button>
+                  </div>
+                </Form>
+              </CardWrapper>
+            </div>
+          </Tabs.TabPane>
+        )}
       </Tabs>
     </CustomLayout>
   );
