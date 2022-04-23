@@ -7,6 +7,8 @@ import HeaderDashboard from "./common/header.dashboard";
 import SidebarMenus from "./common/sidebar-menus";
 
 import Logo from '../../assets/brand/logo.png'
+import { Link } from "react-router-dom";
+import urls from "../../utils/routes/page.routes";
 
 const AdminLayout = ({ children }) => {
   const mediaQuery = useMediaQuery()
@@ -25,9 +27,9 @@ const AdminLayout = ({ children }) => {
   return (
     <Layout hasSider id="layout-admin" className={ collapsed ? 'active' :''}>
       <Layout.Sider id="layout-admin-sidebar" collapsed={collapsed}>
-        <div className="">
+        <Link to={urls.homepage} className="">
           <img src={Logo}  alt="" />
-        </div>
+        </Link>
         <SidebarMenus />
         <button className=" hidden w-12 h-12 border border-slate-700 absolute bottom-0 mx-auto left-0 right-0 mb-4  rounded-full bg-dark-700" onClick={() => onCollapse()}><FontAwesomeIcon icon={faAlignLeft} /></button>
       </Layout.Sider>

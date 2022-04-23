@@ -55,8 +55,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(beatFetchThunk())
-    // dispatch(genreListAllThunk())
-    // dispatch(messageFetchThunk())
+    dispatch(genreListAllThunk())
+    dispatch(messageFetchThunk())
     dispatch(authFetchUsersThunk())
   }, [dispatch]);
 

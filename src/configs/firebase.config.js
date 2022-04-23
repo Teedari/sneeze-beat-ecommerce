@@ -21,7 +21,7 @@ const bucket = getStorage(app)
 
 // Action Code Settings
 const actionCodeSettings = email => ({
-  url: 'http://localhost:3000/dashboard/?email=' + email,
+  url: 'http://localhost:3000/dashboard/?verifyEmail=' + email,
   handleCodeInApp: true,
   // When multiple custom dynamic link domains are defined, specify which
   // one to use.
