@@ -15,7 +15,7 @@
     "antd": "^4.19.5",
     "autoprefixer": "^10.4.4",
     "axios": "^0.26.1",
-    "firebase": "^9.6.10",
+    "firebase": "^9.9.0",
     "node-sass": "^7.0.1",
     "postcss": "^8.4.12",
     "random-number": "0.0.9",
