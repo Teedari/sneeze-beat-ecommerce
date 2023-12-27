@@ -14,7 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.19.5",
     "autoprefixer": "^10.4.4",
-    "axios": "^0.26.1",
+    "axios": "^1.6.3",
     "firebase": "^9.6.10",
     "node-sass": "^7.0.1",
     "postcss": "^8.4.12",
