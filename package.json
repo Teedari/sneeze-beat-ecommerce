@@ -15,7 +15,7 @@
     "antd": "^4.19.5",
     "autoprefixer": "^10.4.4",
     "axios": "^0.26.1",
-    "firebase": "^9.6.10",
+    "firebase": "^10.9.0",
     "node-sass": "^7.0.1",
     "postcss": "^8.4.12",
     "random-number": "0.0.9",
@@ -28,7 +28,7 @@
     "react-scripts": "5.0.0",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
-    "tailwindcss": "^3.0.23",
+    "tailwindcss": "^3.4.15",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
